@@ -1,26 +1,13 @@
-/**
- * @file main.c
- * @brief Handles main scripting.
- **/
 #include "include.h"
 
-/**
- * @brief main database loop
- * @param c the count of system arguments
- * @param v an array of system arguments
- *
- * This function is the first bit of
- * code run in the database, it handles
- * all of the argument declarations,
- * initialization and many other functions
- **/
 int main(const int c, const char *v[]) {
-  pl_arg *db_help = PL_P("--help", "show this dialog");
-  pl_arg *db_init = PL_P("--config-path", "show config path");
+  pl_arg *arg_help = PL_P("--help", "show this dialog");
+  pl_arg *arg_config_paths = PL_P("--config-path", "show config path");
+	pl_arg *arg_config_path = PL_P("--config","load a config file",.takes_value = 1);
   pl_r ret;
 
   if ((ret = pl_proc(c, v)) == PL_SUCCESS) {
-    if (PL_R(db_help))
+    if (PL_R(arg_help))
       goto help_exit;
   }
 
