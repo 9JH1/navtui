@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
+#include <unistd.h>
 
 #define MD5_DIGEST_LENGTH 16
 #define SUBSONIC_SALT_LEN 7
