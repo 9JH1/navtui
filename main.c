@@ -6,17 +6,17 @@ toml_result_t config_file;
 
 
 int main(const int c, const char *v[]) {
-  pl_arg *arg_help = PL_P("--help", "show this dialog");
+  pl_arg *help_arg = PL_P("--help", "show this dialog");
   pl_arg *arg_config_paths = PL_P("--config-path", "show config path");
 	pl_arg *arg_config_path = PL_P("--config","load a config file",.takes_value = 1);
   pl_r ret;
 
 	// parse plib arguments
   if ((ret = pl_proc(c, v)) == PL_SUCCESS){
-		printf("help.triggered = %d\n",arg_help->triggered);
+		printf("help.triggered = %d\n",help_arg->triggered);
 
 	// if --help 
-	if (PL_R(arg_help)){
+	if (PL_R(help_arg)){
 		printf("--help called\n");
 		goto help_exit;
 	}
