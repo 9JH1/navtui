@@ -16,7 +16,7 @@ int main(const int c, const char *v[]) {
 		goto help_exit; 
 
 	// if --help 
-	if (pl_arg_run(arg_help) == PL_SUCCESS){
+	if (pl_arg_run(arg_help) != PL_SUCCESS){
 		printf("--help called\n");
 		goto help_exit;
 	}
