@@ -1,5 +1,7 @@
 var include_8h =
 [
+    [ "url_data", "d0/dfa/structurl__data.html", null ],
+    [ "auth_config", "d9/dfa/structauth__config.html", null ],
     [ "return_codes", "d1/dbe/include_8h.html#aaca7161d951febc512af343029761de1", [
       [ "SUCCESS", "d1/dbe/include_8h.html#aaca7161d951febc512af343029761de1ac7f69f7c9e5aea9b8f54cf02870e2bf8", null ],
       [ "FAIL", "d1/dbe/include_8h.html#aaca7161d951febc512af343029761de1a936c4a5547a9360243178f726f6b2715", null ],

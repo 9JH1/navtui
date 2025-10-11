@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['solid_5fopt_0',['solid_opt',['../de/dca/structsolid__opt.html',1,'']]],
-  ['sprite_5fopt_1',['sprite_opt',['../d8/d5e/structsprite__opt.html',1,'']]]
+  ['inputevent_0',['InputEvent',['../df/d20/structInputEvent.html',1,'']]],
+  ['internal_5fhooks_1',['internal_hooks',['../d1/d07/structinternal__hooks.html',1,'']]]
 ];

@@ -17,10 +17,10 @@ struct \mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}}
 \begin{DoxyCompactList}\small\item\em initial argument alloc amount \end{DoxyCompactList}\item 
 \Hypertarget{plib_8h_ae82e54eaded33c048955580cd5c1d75c}\label{plib_8h_ae82e54eaded33c048955580cd5c1d75c} 
 \#define {\bfseries PL\+\_\+\+VERBOSE}~0
-\item 
+\begin{DoxyCompactList}\small\item\em enables verbose logs To enable verbose logs use the {\ttfamily -\/DPL\+\_\+\+VERBOSE\+\_\+\+ENABLE} flag when running {\ttfamily gcc} \end{DoxyCompactList}\item 
 \Hypertarget{plib_8h_a9c0ee1b5d23f5fc5139448dc7a412e24}\label{plib_8h_a9c0ee1b5d23f5fc5139448dc7a412e24} 
 \#define {\bfseries PL\+\_\+\+VERSION}~"{}4.\+7"{}
-\item 
+\begin{DoxyCompactList}\small\item\em Plib version. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{plib_8h_a45171e7fa12f307982ccbe020218c141}{PL\+\_\+\+INVERT}}(n)
 \begin{DoxyCompactList}\small\item\em Convert -\/n to n-\/1, used for converting \doxylink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r} enum to valid array index in pl\+\_\+s. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{plib_8h_ac79b1ab013efd71cd9c1bbf4d3c11ed4}{PL\+\_\+\+PROC}}()
@@ -28,21 +28,21 @@ struct \mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}}
 \#define \mbox{\hyperlink{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}{PL\+\_\+R}}(arg)
 \begin{DoxyCompactList}\small\item\em check if argument has been run without PL\+\_\+\+SUCCESS comparison this macro just removes the need to use the PL\+\_\+\+SUCCESS comparison which removes clutter and line size. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A}}(...)
-\begin{DoxyCompactList}\small\item\em pl\+\_\+a wrapper that removes the defintion of the struct \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P}}(...)
-\begin{DoxyCompactList}\small\item\em wrapper for pl\+\_\+arg\+\_\+global\+\_\+ptr that removes use of struct type definition. \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_a7887ae8c8869a4abb335d4287f03d5e8}{PL\+\_\+\+GETN}}(name)
-\begin{DoxyCompactList}\small\item\em wrapper of \doxylink{plib_8h_aad261420510eee5046dc0303c270051b}{pl\+\_\+arg\+\_\+by\+\_\+name} \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_a0348dc4d50ec929a2ebe8261f30b9b2c}{PL\+\_\+\+GETI}}(idx)
-\begin{DoxyCompactList}\small\item\em get a pointer to an arg using index \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_a9fa27bd33aa602f21e9dca295c55c2cb}{PL\+\_\+\+LAST\+\_\+\+ARG}}
-\begin{DoxyCompactList}\small\item\em get the last argument parsed by pl\+\_\+proc \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\+\_\+E}}(i)
-\begin{DoxyCompactList}\small\item\em convert a return code to a string using \doxylink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r} to pl\+\_\+s array \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_a461e97db846e9345f362712af8bab0a9}{pl\+\_\+arg\+\_\+sys}}(arg)
-\begin{DoxyCompactList}\small\item\em get the argument name that it was run with \end{DoxyCompactList}\item 
+\item 
 \#define \mbox{\hyperlink{plib_8h_a5bf3755ec2d2c4da87a5501537ee58a7}{pl\+\_\+arg\+\_\+value\+\_\+count}}(parg)
-\begin{DoxyCompactList}\small\item\em get amount of values an arg was run with \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -76,21 +76,27 @@ enum \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r}} \{ 
 \begin{DoxyCompactList}\small\item\em takes in an argc and argv and parse them in comparison to the arguments in PL\+\_\+\+ARGS. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r}} \mbox{\hyperlink{plib_8h_a5bf80193f6d851b4a997bd1a3a263303}{pl\+\_\+arg\+\_\+run}} (const \mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*}local)
 \begin{DoxyCompactList}\small\item\em check if argument has been run \end{DoxyCompactList}\item 
-\mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r}} \mbox{\hyperlink{plib_8h_a0041fd11eb89f0b2761b80660902b020}{pl\+\_\+all\+\_\+triggered}} (void)
-\begin{DoxyCompactList}\small\item\em returns PL\+\_\+\+SUCCESS of if ALL arguments set where used else return PL\+\_\+\+FALIURE \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\+\_\+help}} (void)
-\begin{DoxyCompactList}\small\item\em prints argument details \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{plib_8h_a2d4687ec27d861f778294d9473a169d8}{pl\+\_\+exit}} (void)
-\begin{DoxyCompactList}\small\item\em deallocate PL\+\_\+\+ARGS \end{DoxyCompactList}\item 
+\Hypertarget{plib_8h_a0041fd11eb89f0b2761b80660902b020}\label{plib_8h_a0041fd11eb89f0b2761b80660902b020} 
+\mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r}} {\bfseries pl\+\_\+all\+\_\+triggered} (void)
+\item 
+\Hypertarget{plib_8h_ab2963c491879d340a6d185801b67ebaa}\label{plib_8h_ab2963c491879d340a6d185801b67ebaa} 
+void {\bfseries pl\+\_\+help} (void)
+\item 
+\Hypertarget{plib_8h_a2d4687ec27d861f778294d9473a169d8}\label{plib_8h_a2d4687ec27d861f778294d9473a169d8} 
+void {\bfseries pl\+\_\+exit} (void)
+\item 
 \Hypertarget{plib_8h_a570eebe1ed30d2118de803999b2faa7d}\label{plib_8h_a570eebe1ed30d2118de803999b2faa7d} 
 char \texorpdfstring{$\ast$}{*} {\bfseries pl\+\_\+arg\+\_\+value} (const \mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*}local, const int i)
 \item 
-int \mbox{\hyperlink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\+\_\+a}} (\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} in)
-\begin{DoxyCompactList}\small\item\em create an argument \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib_8h_a94957c815f72b49667d02c689d954260}{pl\+\_\+arg\+\_\+global\+\_\+ptr}} (\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} in)
-\begin{DoxyCompactList}\small\item\em get constant pointer to argument reallocation safe. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib_8h_aad261420510eee5046dc0303c270051b}{pl\+\_\+arg\+\_\+by\+\_\+name}} (const char \texorpdfstring{$\ast$}{*}name)
-\begin{DoxyCompactList}\small\item\em get an argument by name \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}\label{plib_8h_a3b96bab314373ef180ed99fd5e6518ea} 
+int {\bfseries pl\+\_\+a} (\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} in)
+\item 
+\Hypertarget{plib_8h_a94957c815f72b49667d02c689d954260}\label{plib_8h_a94957c815f72b49667d02c689d954260} 
+\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*} {\bfseries pl\+\_\+arg\+\_\+global\+\_\+ptr} (\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} in)
+\item 
+\Hypertarget{plib_8h_aad261420510eee5046dc0303c270051b}\label{plib_8h_aad261420510eee5046dc0303c270051b} 
+\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*} {\bfseries pl\+\_\+arg\+\_\+by\+\_\+name} (const char \texorpdfstring{$\ast$}{*}name)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -103,9 +109,8 @@ int \mbox{\hyperlink{plib_8h_ae79fddc95d813103f186cbf649113438}{PL\+\_\+\+ARGS\+
 \Hypertarget{plib_8h_ac652479936af9912703d22a6cb3ac026}\label{plib_8h_ac652479936af9912703d22a6cb3ac026} 
 char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries PL\+\_\+\+ARGV}
 \begin{DoxyCompactList}\small\item\em local copy of argument array parsed into \doxylink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\+\_\+proc} \end{DoxyCompactList}\item 
-\Hypertarget{plib_8h_aa0dd20509222b04db3d1fd9fa4ca2151}\label{plib_8h_aa0dd20509222b04db3d1fd9fa4ca2151} 
-int {\bfseries PL\+\_\+\+ARGC}
-\begin{DoxyCompactList}\small\item\em local copy of argument count parsed into \doxylink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\+\_\+proc} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{plib_8h_aa0dd20509222b04db3d1fd9fa4ca2151}{PL\+\_\+\+ARGC}}
+\item 
 \Hypertarget{plib_8h_a1198d450fd97d833116a6248ea3ed746}\label{plib_8h_a1198d450fd97d833116a6248ea3ed746} 
 int {\bfseries PL\+\_\+\+PROC\+\_\+\+END\+\_\+\+ARGC}
 \begin{DoxyCompactList}\small\item\em index of PL\+\_\+\+ARGC that was last parsed by \doxylink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\+\_\+proc} used in error checking if pl\+\_\+proc throws an error this value is the index of argument that caused the error. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -116,18 +121,18 @@ Basic argument parsing library.
 
 Plib gives functions to create and manage the system arguments of any given function, these arguments can be defined with many options for example shorthand and long-\/hand versions of the same ag eg {\ttfamily -\/-\/help} and {\ttfamily -\/h}.
 
-Arguments are dynamically allocated and free\textquotesingle{}d automatically on exit so you dont have to worry about any memory leaks. Along with this plib provides a builtin function called \doxylink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\+\_\+help} which prints out all of the arguments in a standard format.
+Arguments are dynamically allocated and free\textquotesingle{}d automatically on exit so you dont have to worry about any memory leaks. Along with this plib provides a builtin function called pl\+\_\+help which prints out all of the arguments in a standard format.
 
 In order to get started with plib first you must include the system arguments into your main function, for reference look here\+: \href{https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-main-function}{\texttt{https\+://www.\+ibm.\+com/docs/en/zos/2.\+4.\+0?topic=functions-\/main-\/function}}
 
-To create an argument use \doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\+\_\+a} \doxylink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A} or \doxylink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P}, read the structure declaration \doxylink{structpl__arg}{pl\+\_\+arg} to learn all of the options. 
+To create an argument use pl\+\_\+a PL\+\_\+A or PL\+\_\+P, read the structure declaration \doxylink{structpl__arg}{pl\+\_\+arg} to learn all of the options. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib_8h}{plib.h}}"{}}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_ac490e54d26e537126a97540acf0b1cba}{main}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *v[])\{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *\ my\_arg\ =\ \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\_P}}(\textcolor{stringliteral}{"{}-\/-\/my-\/arg"{}},\ \textcolor{stringliteral}{"{}basic\ first\ argument!"{}});}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *v[])\{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *\ my\_arg\ =\ PL\_P(\textcolor{stringliteral}{"{}-\/-\/my-\/arg"{}},\ \textcolor{stringliteral}{"{}basic\ first\ argument!"{}});}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\_proc}}(c,v);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\_help}}();}
+\DoxyCodeLine{\ \ pl\_help();}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
 \DoxyCodeLine{\}}
 
@@ -150,7 +155,7 @@ To create an argument use \doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{p
  Now if we run our program it will print back "{}\+Hello World!"{} To take an value with an argument you simply put .takes\+\_\+value = 1 in the argument definition like so\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{comment}{//\ ...}}
-\DoxyCodeLine{\mbox{\hyperlink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\_a}}\ *\ my\_arg\ =\ \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\_P}}(\textcolor{stringliteral}{"{}-\/-\/my-\/arg"{}},\textcolor{stringliteral}{"{}basic\ first\ argument!"{}},\ .takes\_value\ =\ 1);}
+\DoxyCodeLine{pl\_a\ *\ my\_arg\ =\ PL\_P(\textcolor{stringliteral}{"{}-\/-\/my-\/arg"{}},\textcolor{stringliteral}{"{}basic\ first\ argument!"{}},\ .takes\_value\ =\ 1);}
 \DoxyCodeLine{\textcolor{comment}{//\ ...}}
 
 \end{DoxyCode}
@@ -164,8 +169,8 @@ To create an argument use \doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{p
 \DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ error\ occured}}
 \DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}Error\ occured\ \%s\ from\ \%s\(\backslash\)n"{}},}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\_E}}(return\_code),}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib_8h_a9fa27bd33aa602f21e9dca295c55c2cb}{PL\_LAST\_ARG}});}
+\DoxyCodeLine{\ \ \ \ PL\_E(return\_code),}
+\DoxyCodeLine{\ \ \ \ PL\_LAST\_ARG);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{\textcolor{comment}{//\ ...}}
 
@@ -190,8 +195,8 @@ To get the value of an arg either use pl\+\_\+arg\+\_\+value like so\+:
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib_8h}{plib.h}}"{}}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_ac490e54d26e537126a97540acf0b1cba}{main}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *v[])\{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *\ my\_arg\ =\ \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\_P}}(\textcolor{stringliteral}{"{}-\/-\/my-\/arg"{}},\textcolor{stringliteral}{"{}my\ argument!"{}},\ .takes\_value\ =\ 1);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *v[])\{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *\ my\_arg\ =\ PL\_P(\textcolor{stringliteral}{"{}-\/-\/my-\/arg"{}},\textcolor{stringliteral}{"{}my\ argument!"{}},\ .takes\_value\ =\ 1);}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\_r}}\ return\_code;}
 \DoxyCodeLine{\ \ }
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}((return\_code\ =\ \mbox{\hyperlink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\_proc}}(c,v))\ ==\ PL\_SUCCESS)\{}
@@ -202,8 +207,8 @@ To get the value of an arg either use pl\+\_\+arg\+\_\+value like so\+:
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ error\ occured}}
 \DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ occured\ \%s\ from\ \%s\(\backslash\)n"{}},}
-\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\_E}}(return\_code),}
-\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{plib_8h_a9fa27bd33aa602f21e9dca295c55c2cb}{PL\_LAST\_ARG}});}
+\DoxyCodeLine{\ \ \ \ \ \ PL\_E(return\_code),}
+\DoxyCodeLine{\ \ \ \ \ \ PL\_LAST\_ARG);}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
@@ -226,25 +231,7 @@ To get the value of an arg either use pl\+\_\+arg\+\_\+value like so\+:
 \DoxyCodeLine{pl\_a((\mbox{\hyperlink{structpl__arg}{pl\_arg}})\{\_\_VA\_ARGS\_\_\})}
 
 \end{DoxyCode}
-
-
-pl\+\_\+a wrapper that removes the defintion of the struct 
-
-{\ttfamily PL\+\_\+A} is a wrapper that allows you to enter the struct data directly into a function without needing to define the type of struct, here is the before and after\+:
-
-using \doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\+\_\+a} 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ ret\ =\ \mbox{\hyperlink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\_a}}((\mbox{\hyperlink{structpl__arg}{pl\_arg}})\{.name=\textcolor{stringliteral}{"{}test"{}},.takes\_value=1\});}
-
-\end{DoxyCode}
-
-
-Using \doxylink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A} 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ ret\ =\ \mbox{\hyperlink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\_A}}(.name=\textcolor{stringliteral}{"{}test"{}},.takes\_value=1);}
-
-\end{DoxyCode}
- \Hypertarget{plib_8h_a461e97db846e9345f362712af8bab0a9}\index{plib.h@{plib.h}!pl\_arg\_sys@{pl\_arg\_sys}}
+\Hypertarget{plib_8h_a461e97db846e9345f362712af8bab0a9}\index{plib.h@{plib.h}!pl\_arg\_sys@{pl\_arg\_sys}}
 \index{pl\_arg\_sys@{pl\_arg\_sys}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{pl\_arg\_sys}{pl\_arg\_sys}}
 {\footnotesize\ttfamily \label{plib_8h_a461e97db846e9345f362712af8bab0a9} 
@@ -255,11 +242,7 @@ Using \doxylink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A}
 \DoxyCodeLine{(arg-\/>triggered\ ==\ 1)\ ?\ ((arg-\/>shorthand\_triggered\ ==\ 1)\ ?\ arg-\/>shorthand\ :\ arg-\/>name)\ :\ NULL}
 
 \end{DoxyCode}
-
-
-get the argument name that it was run with 
-
-arguments can be run using either their .name or .shorthand values, this function returns the method used when the argument was parsed. note this won\textquotesingle{}t work if the the user uses the same flag multiple times and with both the shorthand and name \Hypertarget{plib_8h_a5bf3755ec2d2c4da87a5501537ee58a7}\index{plib.h@{plib.h}!pl\_arg\_value\_count@{pl\_arg\_value\_count}}
+\Hypertarget{plib_8h_a5bf3755ec2d2c4da87a5501537ee58a7}\index{plib.h@{plib.h}!pl\_arg\_value\_count@{pl\_arg\_value\_count}}
 \index{pl\_arg\_value\_count@{pl\_arg\_value\_count}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{pl\_arg\_value\_count}{pl\_arg\_value\_count}}
 {\footnotesize\ttfamily \label{plib_8h_a5bf3755ec2d2c4da87a5501537ee58a7} 
@@ -270,11 +253,7 @@ arguments can be run using either their .name or .shorthand values, this functio
 \DoxyCodeLine{parg-\/>value\_idx}
 
 \end{DoxyCode}
-
-
-get amount of values an arg was run with 
-
-if an argument that takes a value is run multiple times you can use this macro to get the amount of times the argument was run which is also the amount of values in the {\ttfamily .value} array \Hypertarget{plib_8h_a2fff4b4869e460c1d102511abb189fcf}\index{plib.h@{plib.h}!PL\_E@{PL\_E}}
+\Hypertarget{plib_8h_a2fff4b4869e460c1d102511abb189fcf}\index{plib.h@{plib.h}!PL\_E@{PL\_E}}
 \index{PL\_E@{PL\_E}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_E}{PL\_E}}
 {\footnotesize\ttfamily \label{plib_8h_a2fff4b4869e460c1d102511abb189fcf} 
@@ -285,10 +264,6 @@ if an argument that takes a value is run multiple times you can use this macro t
 \DoxyCodeLine{pl\_s[\mbox{\hyperlink{plib_8h_a45171e7fa12f307982ccbe020218c141}{PL\_INVERT}}(i)]}
 
 \end{DoxyCode}
-
-
-convert a return code to a string using \doxylink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r} to pl\+\_\+s array 
-
 \Hypertarget{plib_8h_a0348dc4d50ec929a2ebe8261f30b9b2c}\index{plib.h@{plib.h}!PL\_GETI@{PL\_GETI}}
 \index{PL\_GETI@{PL\_GETI}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_GETI}{PL\_GETI}}
@@ -300,19 +275,6 @@ convert a return code to a string using \doxylink{plib_8h_afe6a6572169aee3b8a8e0
 \DoxyCodeLine{\&PL\_ARGS[idx]}
 
 \end{DoxyCode}
-
-
-get a pointer to an arg using index 
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\+\_\+a} 
-
-\doxylink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A} 
-
-\doxylink{plib_8h_a94957c815f72b49667d02c689d954260}{pl\+\_\+arg\+\_\+global\+\_\+ptr} 
-
-\doxylink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P} 
-\end{DoxySeeAlso}
 \Hypertarget{plib_8h_a7887ae8c8869a4abb335d4287f03d5e8}\index{plib.h@{plib.h}!PL\_GETN@{PL\_GETN}}
 \index{PL\_GETN@{PL\_GETN}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_GETN}{PL\_GETN}}
@@ -324,13 +286,6 @@ get a pointer to an arg using index
 \DoxyCodeLine{pl\_arg\_by\_name(name)}
 
 \end{DoxyCode}
-
-
-wrapper of \doxylink{plib_8h_aad261420510eee5046dc0303c270051b}{pl\+\_\+arg\+\_\+by\+\_\+name} 
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_aad261420510eee5046dc0303c270051b}{pl\+\_\+arg\+\_\+by\+\_\+name} 
-\end{DoxySeeAlso}
 \Hypertarget{plib_8h_a7f8d80ee15b3b348f0fca78043a59f57}\index{plib.h@{plib.h}!PL\_INIT\_ARG\_ALLOC@{PL\_INIT\_ARG\_ALLOC}}
 \index{PL\_INIT\_ARG\_ALLOC@{PL\_INIT\_ARG\_ALLOC}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_INIT\_ARG\_ALLOC}{PL\_INIT\_ARG\_ALLOC}}
@@ -341,7 +296,7 @@ wrapper of \doxylink{plib_8h_aad261420510eee5046dc0303c270051b}{pl\+\_\+arg\+\_\
 
 initial argument alloc amount 
 
-PLib adds each new argument to an array of pl\+\_\+a structs. this value is the initial start value of plib, note that if you want to optimize your code and use \doxylink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A} instead of \doxylink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P} then increase this value to the same amount of arguments you intend on defining. \Hypertarget{plib_8h_a45171e7fa12f307982ccbe020218c141}\index{plib.h@{plib.h}!PL\_INVERT@{PL\_INVERT}}
+PLib adds each new argument to an array of pl\+\_\+a structs. this value is the initial start value of plib, note that if you want to optimize your code and use PL\+\_\+A instead of PL\+\_\+P then increase this value to the same amount of arguments you intend on defining. \Hypertarget{plib_8h_a45171e7fa12f307982ccbe020218c141}\index{plib.h@{plib.h}!PL\_INVERT@{PL\_INVERT}}
 \index{PL\_INVERT@{PL\_INVERT}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_INVERT}{PL\_INVERT}}
 {\footnotesize\ttfamily \label{plib_8h_a45171e7fa12f307982ccbe020218c141} 
@@ -377,17 +332,6 @@ pl\+\_\+s
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pl\_s[\mbox{\hyperlink{plib_8h_a45171e7fa12f307982ccbe020218c141}{PL\_INVERT}}(PL\_NO\_ARGUMENTS\_GIVEN)]}
 
 \end{DoxyCode}
-
-
-get the last argument parsed by pl\+\_\+proc 
-
-\begin{DoxySeeAlso}{See also}
-pl\+\_\+s 
-
-\doxylink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\+\_\+E} 
-
-\doxylink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r} 
-\end{DoxySeeAlso}
 \Hypertarget{plib_8h_acd82187d4f87128df6701e1117951d63}\index{plib.h@{plib.h}!PL\_P@{PL\_P}}
 \index{PL\_P@{PL\_P}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_P}{PL\_P}}
@@ -399,11 +343,7 @@ pl\+\_\+s
 \DoxyCodeLine{pl\_arg\_global\_ptr((\mbox{\hyperlink{structpl__arg}{pl\_arg}})\{\_\_VA\_ARGS\_\_\})}
 
 \end{DoxyCode}
-
-
-wrapper for pl\+\_\+arg\+\_\+global\+\_\+ptr that removes use of struct type definition. 
-
-exact same as \doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\+\_\+a} and \doxylink{plib_8h_a7861a13243875e0d471c6345fdcca7de}{PL\+\_\+A}. \Hypertarget{plib_8h_ac79b1ab013efd71cd9c1bbf4d3c11ed4}\index{plib.h@{plib.h}!PL\_PROC@{PL\_PROC}}
+\Hypertarget{plib_8h_ac79b1ab013efd71cd9c1bbf4d3c11ed4}\index{plib.h@{plib.h}!PL\_PROC@{PL\_PROC}}
 \index{PL\_PROC@{PL\_PROC}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_PROC}{PL\_PROC}}
 {\footnotesize\ttfamily \label{plib_8h_ac79b1ab013efd71cd9c1bbf4d3c11ed4} 
@@ -483,13 +423,13 @@ argument options
 \begin{DoxyParams}{Parameters}
 {\em name} & flag name eg {\ttfamily -\/-\/help} \\
 \hline
-{\em description} & flag description (used in \doxylink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\+\_\+help}) \\
+{\em description} & flag description (used in pl\+\_\+help) \\
 \hline
 {\em takes\+\_\+value} & set whether or not the argument should expect a value \\
 \hline
-{\em catagory} & set a catagory for an argument, arguments of the same catagory are printed togeather in \doxylink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\+\_\+help} \\
+{\em catagory} & set a catagory for an argument, arguments of the same catagory are printed togeather in pl\+\_\+help \\
 \hline
-{\em type} & type of value, not actuall enforced but used in \doxylink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\+\_\+help} instead. eg VOID or INT. \\
+{\em type} & type of value, not actuall enforced but used in pl\+\_\+help instead. eg VOID or INT. \\
 \hline
 {\em value} & if {\ttfamily .takes\+\_\+value = 1} then the value(s) parsed in will be allocated here. \\
 \hline
@@ -515,8 +455,8 @@ enum \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r}}}
 
 PLib return codes. 
 
-These codes are used by most plib functions a code can be turned into a string using the \doxylink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\+\_\+E} function. The strings used for error codes can be read in the \doxylink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r} array. \begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\+\_\+E} 
+These codes are used by most plib functions a code can be turned into a string using the PL\+\_\+E function. The strings used for error codes can be read in the \doxylink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r} array. \begin{DoxySeeAlso}{See also}
+PL\+\_\+E 
 
 pl\+\_\+s 
 \end{DoxySeeAlso}
@@ -525,50 +465,7 @@ pl\+\_\+s
 \label{doc-func-members}
 \Hypertarget{plib_8h_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}\index{plib.h@{plib.h}!pl\_a@{pl\_a}}
-\index{pl\_a@{pl\_a}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{pl\_a()}{pl\_a()}}
-{\footnotesize\ttfamily \label{plib_8h_a3b96bab314373ef180ed99fd5e6518ea} 
-int pl\+\_\+a (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}}}]{in}{}\end{DoxyParamCaption})}
-
-
-
-create an argument 
-
-This is the main function used to create an argument there are many forms of this argument listed below. this function simply takes in a \doxylink{structpl__arg}{pl\+\_\+arg} and writes it to an array, this array is used as reference when calling pl\+\_\+proc, as noted at the very top in the definition of \doxylink{structpl__arg}{pl\+\_\+arg}. \begin{DoxySeeAlso}{See also}
-\doxylink{structpl__arg}{pl\+\_\+arg} 
-\end{DoxySeeAlso}
-
-\begin{DoxyParams}{Parameters}
-{\em in} & \doxylink{structpl__arg}{pl\+\_\+arg}\\
-\hline
-\end{DoxyParams}
-\Hypertarget{plib_8h_a0041fd11eb89f0b2761b80660902b020}\index{plib.h@{plib.h}!pl\_all\_triggered@{pl\_all\_triggered}}
-\index{pl\_all\_triggered@{pl\_all\_triggered}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{pl\_all\_triggered()}{pl\_all\_triggered()}}
-{\footnotesize\ttfamily \label{plib_8h_a0041fd11eb89f0b2761b80660902b020} 
-\mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\+\_\+r}} pl\+\_\+all\+\_\+triggered (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-returns PL\+\_\+\+SUCCESS of if ALL arguments set where used else return PL\+\_\+\+FALIURE 
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}{PL\+\_\+R} 
-
-\doxylink{plib_8h_a5bf80193f6d851b4a997bd1a3a263303}{pl\+\_\+arg\+\_\+run} 
-\end{DoxySeeAlso}
-\Hypertarget{plib_8h_aad261420510eee5046dc0303c270051b}\index{plib.h@{plib.h}!pl\_arg\_by\_name@{pl\_arg\_by\_name}}
-\index{pl\_arg\_by\_name@{pl\_arg\_by\_name}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{pl\_arg\_by\_name()}{pl\_arg\_by\_name()}}
-{\footnotesize\ttfamily \label{plib_8h_aad261420510eee5046dc0303c270051b} 
-\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*} pl\+\_\+arg\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
-
-
-
-get an argument by name 
-
-takes in a string of a flag name and searches for it in the argument list, if found it will return the \doxylink{structpl__arg}{pl\+\_\+arg} as a pointer or if not found it will return nothing. \Hypertarget{plib_8h_aeb7b62bb39a3e32ea5124701524782b0}\index{plib.h@{plib.h}!pl\_arg\_exist@{pl\_arg\_exist}}
+\Hypertarget{plib_8h_aeb7b62bb39a3e32ea5124701524782b0}\index{plib.h@{plib.h}!pl\_arg\_exist@{pl\_arg\_exist}}
 \index{pl\_arg\_exist@{pl\_arg\_exist}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{pl\_arg\_exist()}{pl\_arg\_exist()}}
 {\footnotesize\ttfamily \label{plib_8h_aeb7b62bb39a3e32ea5124701524782b0} 
@@ -583,26 +480,6 @@ takes in a string name and searches PL\+\_\+\+ARGS to check if the parsed string
 {\em name} & String .name of \doxylink{structpl__arg}{pl\+\_\+arg} to search for. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{plib_8h_a94957c815f72b49667d02c689d954260}\index{plib.h@{plib.h}!pl\_arg\_global\_ptr@{pl\_arg\_global\_ptr}}
-\index{pl\_arg\_global\_ptr@{pl\_arg\_global\_ptr}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{pl\_arg\_global\_ptr()}{pl\_arg\_global\_ptr()}}
-{\footnotesize\ttfamily \label{plib_8h_a94957c815f72b49667d02c689d954260} 
-\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} \texorpdfstring{$\ast$}{*} pl\+\_\+arg\+\_\+global\+\_\+ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}}}]{in}{}\end{DoxyParamCaption})}
-
-
-
-get constant pointer to argument reallocation safe. 
-
-To understand why this macro exists along with its implicit pl\+\_\+arg\+\_\+global\+\_\+ptr. originally pl\+\_\+a returned a pointer \doxylink{structpl__arg}{pl\+\_\+arg} to the actual item in the arguments array, this was very bad as when the argument list reached capacity it would overwrite the pointers memory location which creates a dangling pointer. this pointer can still be interacted with without error, the issue with this is that the pointer that we think is pointing to an argument in our argument list is actually not existant which means that from a debug point of view if you created an argument and the list was re-\/allocated then now for some reason regardless of how you trigger that argument it still comes up as false when using pl\+\_\+arg\+\_\+run this is of course because the pointer is refering to something other then what it is suppost too. to combat this i changed the code so an index is returned instead of a pointer, then after all of the args are set you can use either \&PL\+\_\+\+ARGS\mbox{[}index\mbox{]} or \doxylink{plib_8h_a0348dc4d50ec929a2ebe8261f30b9b2c}{PL\+\_\+\+GETI(i)} to grab a pointer to an argument, now this was a good fix but now one line has turned into two lines, one for definition and a second for actually getting the pointer from the index. the way this is resolved is by using the following macro which is a copy of the PL\+\_\+A macro but for the pl\+\_\+arg\+\_\+global\+\_\+ptr func the pl\+\_\+arg\+\_\+global\+\_\+ptr function will first check to see if the arg has been created if it has then it will search for it in the argument list and return a pointer to it if it finds it. if the arg has not been made then the arg will be offloaded into the pl\+\_\+a function and then returned as a pointer. this means that if you initialize a var using the PL\+\_\+P function every time you call the variable it will perform a search in the argument list for the argument which removes all risk of dangling pointers as the information is updated per-\/call and isent static and overwritable. 
-\begin{DoxyParams}{Parameters}
-{\em } & \\
-\hline
-\end{DoxyParams}
-see PL\+\_\+A \begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_a3b96bab314373ef180ed99fd5e6518ea}{pl\+\_\+a} 
-
-\doxylink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P} 
-\end{DoxySeeAlso}
 \Hypertarget{plib_8h_a5bf80193f6d851b4a997bd1a3a263303}\index{plib.h@{plib.h}!pl\_arg\_run@{pl\_arg\_run}}
 \index{pl\_arg\_run@{pl\_arg\_run}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{pl\_arg\_run()}{pl\_arg\_run()}}
@@ -621,36 +498,11 @@ You can instead use the \doxylink{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}{PL\
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P} 
+PL\+\_\+P 
 
 \doxylink{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}{PL\+\_\+R} 
 \end{DoxySeeAlso}
-\Hypertarget{plib_8h_a2d4687ec27d861f778294d9473a169d8}\index{plib.h@{plib.h}!pl\_exit@{pl\_exit}}
-\index{pl\_exit@{pl\_exit}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{pl\_exit()}{pl\_exit()}}
-{\footnotesize\ttfamily \label{plib_8h_a2d4687ec27d861f778294d9473a169d8} 
-void pl\+\_\+exit (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-deallocate PL\+\_\+\+ARGS 
-
-when creating an argument a new slice of an array is allocated where the arguments data is held. also when an argument has a value parsed into it the .value of the arg has to be allocated too, the pl\+\_\+exit function clears all of the memory from everything. this function will be automatically called on exit if the pl\+\_\+proc function has been run.
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{plib_8h_ad61216a8e5e91513093a079b5481189c}{PL\+\_\+\+ARGS} 
-\end{DoxySeeAlso}
-\Hypertarget{plib_8h_ab2963c491879d340a6d185801b67ebaa}\index{plib.h@{plib.h}!pl\_help@{pl\_help}}
-\index{pl\_help@{pl\_help}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{pl\_help()}{pl\_help()}}
-{\footnotesize\ttfamily \label{plib_8h_ab2963c491879d340a6d185801b67ebaa} 
-void pl\+\_\+help (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-prints argument details 
-
-prints out all set arguments and their info, very powerful and auto-\/adapting to whatever information is available or set in args, by this i mean if all of the arguments set do not specify a .type then no space or column will be printed for them but if one of the set args (or more) have the .type set then a column will be printed, all values printed are aligned and catagorized too. \Hypertarget{plib_8h_a390a51827a1a4a90278081695b6c63ed}\index{plib.h@{plib.h}!pl\_proc@{pl\_proc}}
+\Hypertarget{plib_8h_a390a51827a1a4a90278081695b6c63ed}\index{plib.h@{plib.h}!pl\_proc@{pl\_proc}}
 \index{pl\_proc@{pl\_proc}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{pl\_proc()}{pl\_proc()}}
 {\footnotesize\ttfamily \label{plib_8h_a390a51827a1a4a90278081695b6c63ed} 
@@ -675,7 +527,13 @@ takes in an argc and argv and parse them in comparison to the arguments in PL\+\
 \label{doc-var-members}
 \Hypertarget{plib_8h_doc-var-members}
 \doxysubsection{Variable Documentation}
-\Hypertarget{plib_8h_ad61216a8e5e91513093a079b5481189c}\index{plib.h@{plib.h}!PL\_ARGS@{PL\_ARGS}}
+\Hypertarget{plib_8h_aa0dd20509222b04db3d1fd9fa4ca2151}\index{plib.h@{plib.h}!PL\_ARGC@{PL\_ARGC}}
+\index{PL\_ARGC@{PL\_ARGC}!plib.h@{plib.h}}
+\doxysubsubsection{\texorpdfstring{PL\_ARGC}{PL\_ARGC}}
+{\footnotesize\ttfamily \label{plib_8h_aa0dd20509222b04db3d1fd9fa4ca2151} 
+int PL\+\_\+\+ARGC\hspace{0.3cm}{\ttfamily [extern]}}
+
+@breif local copy of argument count parsed into \doxylink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\+\_\+proc} \Hypertarget{plib_8h_ad61216a8e5e91513093a079b5481189c}\index{plib.h@{plib.h}!PL\_ARGS@{PL\_ARGS}}
 \index{PL\_ARGS@{PL\_ARGS}!plib.h@{plib.h}}
 \doxysubsubsection{\texorpdfstring{PL\_ARGS}{PL\_ARGS}}
 {\footnotesize\ttfamily \label{plib_8h_ad61216a8e5e91513093a079b5481189c} 

@@ -1,0 +1,52 @@
+\doxysection{src/lib.c File Reference}
+\hypertarget{lib_8c}{}\label{lib_8c}\index{src/lib.c@{src/lib.c}}
+{\ttfamily \#include "{}../include.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lib_8c_a9733cadf4bf769517625a90c6e4e8696}{quit}} (int code)
+\begin{DoxyCompactList}\small\item\em Custom exit function. \end{DoxyCompactList}\item 
+\Hypertarget{lib_8c_a97ee70a8770dc30d06c744b24eb2fcfc}\label{lib_8c_a97ee70a8770dc30d06c744b24eb2fcfc} 
+void {\bfseries help} ()
+\begin{DoxyCompactList}\small\item\em Custom help function, mostly just a pl\+\_\+help wrapper. \end{DoxyCompactList}\item 
+\Hypertarget{lib_8c_a6a478461375b9a0e4815df5ac791e747}\label{lib_8c_a6a478461375b9a0e4815df5ac791e747} 
+char \texorpdfstring{$\ast$}{*} {\bfseries fetch\+\_\+url\+\_\+content} (const char \texorpdfstring{$\ast$}{*}url)
+\item 
+\Hypertarget{lib_8c_a8900d6729847a864fde0a01a40491ec0}\label{lib_8c_a8900d6729847a864fde0a01a40491ec0} 
+char {\bfseries random\+\_\+char} (void)
+\item 
+\Hypertarget{lib_8c_aecca163a7f0c665e137b2248a1f0af04}\label{lib_8c_aecca163a7f0c665e137b2248a1f0af04} 
+char \texorpdfstring{$\ast$}{*} {\bfseries md5} (const char \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{lib_8c_a7cd539a55c81ebbb362c1eee877f1b4c}\label{lib_8c_a7cd539a55c81ebbb362c1eee877f1b4c} 
+char \texorpdfstring{$\ast$}{*} {\bfseries generate\+\_\+random\+\_\+string} (int len)
+\item 
+\Hypertarget{lib_8c_a3dd31df12b6248c6b2ec0b4495a6c2cc}\label{lib_8c_a3dd31df12b6248c6b2ec0b4495a6c2cc} 
+int {\bfseries auth\+\_\+subsonic} (\mbox{\hyperlink{structauth__config}{auth\+\_\+config}} \texorpdfstring{$\ast$}{*}in)
+\item 
+\Hypertarget{lib_8c_ac476bf56d49fbb16421a136b2d091050}\label{lib_8c_ac476bf56d49fbb16421a136b2d091050} 
+char \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+full\+\_\+url} (\mbox{\hyperlink{structauth__config}{auth\+\_\+config}} \texorpdfstring{$\ast$}{*}config, char \texorpdfstring{$\ast$}{*}path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@breif this file contains all of the function definitions from in \doxylink{include_8h}{include.\+h}. 
+
+\label{doc-func-members}
+\Hypertarget{lib_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lib_8c_a9733cadf4bf769517625a90c6e4e8696}\index{lib.c@{lib.c}!quit@{quit}}
+\index{quit@{quit}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{quit()}{quit()}}
+{\footnotesize\ttfamily \label{lib_8c_a9733cadf4bf769517625a90c6e4e8696} 
+void quit (\begin{DoxyParamCaption}\item[{int}]{code}{}\end{DoxyParamCaption})}
+
+
+
+Custom exit function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Exit code \\
+\hline
+\end{DoxyParams}

@@ -29,10 +29,10 @@ file \mbox{\hyperlink{plib_8h}{plib.\+h}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib_8h}{plib.h}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_ac490e54d26e537126a97540acf0b1cba}{main}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *b[])\{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ a,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *b[])\{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ create\ arguments\ }}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *\mbox{\hyperlink{include_8h_a0bed8474bd33a912769360766f6b10d4}{help}}\ =\ \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\_P}}(\textcolor{stringliteral}{"{}-\/-\/help"{}},\textcolor{stringliteral}{"{}basic\ help\ call"{}},.type=\textcolor{stringliteral}{"{}void"{}},.shorthand=\textcolor{stringliteral}{"{}-\/h"{}});}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *test\ =\ \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\_P}}(\textcolor{stringliteral}{"{}-\/-\/test"{}},\textcolor{stringliteral}{"{}basic\ value\ arg"{}},1,.type=\textcolor{stringliteral}{"{}char\ *"{}},.shorthand=\textcolor{stringliteral}{"{}-\/t"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *\mbox{\hyperlink{include_8h_a0bed8474bd33a912769360766f6b10d4}{help}}\ =\ PL\_P(\textcolor{stringliteral}{"{}-\/-\/help"{}},\textcolor{stringliteral}{"{}basic\ help\ call"{}},.type=\textcolor{stringliteral}{"{}void"{}},.shorthand=\textcolor{stringliteral}{"{}-\/h"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *test\ =\ PL\_P(\textcolor{stringliteral}{"{}-\/-\/test"{}},\textcolor{stringliteral}{"{}basic\ value\ arg"{}},1,.type=\textcolor{stringliteral}{"{}char\ *"{}},.shorthand=\textcolor{stringliteral}{"{}-\/t"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ error\ code\ var\ }}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\_r}}\ ret;\ }
@@ -45,12 +45,12 @@ file \mbox{\hyperlink{plib_8h}{plib.\+h}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}'\%s'\(\backslash\)n"{}},\ pl\_arg\_value(test),0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}{PL\_R}}(\mbox{\hyperlink{include_8h_a0bed8474bd33a912769360766f6b10d4}{help}}))}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\_help}}();\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pl\_help();\ }
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ handle\ errors}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}error\ '\%s'\ ('\%s')\(\backslash\)n"{}},\ \mbox{\hyperlink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\_E}}(ret),\ \mbox{\hyperlink{plib_8h_a9fa27bd33aa602f21e9dca295c55c2cb}{PL\_LAST\_ARG}});}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\_help}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}error\ '\%s'\ ('\%s')\(\backslash\)n"{}},\ PL\_E(ret),\ PL\_LAST\_ARG);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pl\_help();}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ exit}}
@@ -79,8 +79,8 @@ started 02/10/2025 \end{quote}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib_8h}{plib.h}}"{}}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_ac490e54d26e537126a97540acf0b1cba}{main}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *v[])\{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *test\ =\ \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\_P}}(\textcolor{stringliteral}{"{}-\/-\/test"{}},.takes\_value\ =\ 1);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *v[])\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *test\ =\ PL\_P(\textcolor{stringliteral}{"{}-\/-\/test"{}},.takes\_value\ =\ 1);}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\_r}}\ ret\ =\ PL\_FAILURE;}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}((ret\ =\ \mbox{\hyperlink{plib_8h_a390a51827a1a4a90278081695b6c63ed}{pl\_proc}}(c,v))\ ==\ PL\_SUCCESS)\{}
@@ -96,10 +96,10 @@ started 02/10/2025 \end{quote}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ handle\ errors\ }}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ '\%s'\ from\ '\%s'\(\backslash\)n"{}},}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib_8h_a2fff4b4869e460c1d102511abb189fcf}{PL\_E}}(ret),}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib_8h_a9fa27bd33aa602f21e9dca295c55c2cb}{PL\_LAST\_ARG}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PL\_E(ret),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PL\_LAST\_ARG);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{plib_8h_ab2963c491879d340a6d185801b67ebaa}{pl\_help}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pl\_help();}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}

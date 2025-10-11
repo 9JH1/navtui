@@ -110,10 +110,10 @@ Files</h2></td></tr>
 </div><!-- fragment --> <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d3/db7/plib_8h.html">plib.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="d0/d29/main_8c.html#ac490e54d26e537126a97540acf0b1cba">main</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> a, <span class="keyword">const</span> <span class="keywordtype">char</span> *b[]){</div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keyword">const</span> <span class="keywordtype">int</span> a, <span class="keyword">const</span> <span class="keywordtype">char</span> *b[]){</div>
 <div class="line">    <span class="comment">// create arguments </span></div>
-<div class="line">    <a class="code hl_struct" href="d4/d1b/structpl__arg.html">pl_arg</a> *<a class="code hl_function" href="d1/dbe/include_8h.html#a0bed8474bd33a912769360766f6b10d4">help</a> = <a class="code hl_define" href="d3/db7/plib_8h.html#acd82187d4f87128df6701e1117951d63">PL_P</a>(<span class="stringliteral">&quot;--help&quot;</span>,<span class="stringliteral">&quot;basic help call&quot;</span>,.type=<span class="stringliteral">&quot;void&quot;</span>,.shorthand=<span class="stringliteral">&quot;-h&quot;</span>);</div>
-<div class="line">    <a class="code hl_struct" href="d4/d1b/structpl__arg.html">pl_arg</a> *test = <a class="code hl_define" href="d3/db7/plib_8h.html#acd82187d4f87128df6701e1117951d63">PL_P</a>(<span class="stringliteral">&quot;--test&quot;</span>,<span class="stringliteral">&quot;basic value arg&quot;</span>,1,.type=<span class="stringliteral">&quot;char *&quot;</span>,.shorthand=<span class="stringliteral">&quot;-t&quot;</span>);</div>
+<div class="line">    <a class="code hl_struct" href="d4/d1b/structpl__arg.html">pl_arg</a> *<a class="code hl_function" href="d1/dbe/include_8h.html#a0bed8474bd33a912769360766f6b10d4">help</a> = PL_P(<span class="stringliteral">&quot;--help&quot;</span>,<span class="stringliteral">&quot;basic help call&quot;</span>,.type=<span class="stringliteral">&quot;void&quot;</span>,.shorthand=<span class="stringliteral">&quot;-h&quot;</span>);</div>
+<div class="line">    <a class="code hl_struct" href="d4/d1b/structpl__arg.html">pl_arg</a> *test = PL_P(<span class="stringliteral">&quot;--test&quot;</span>,<span class="stringliteral">&quot;basic value arg&quot;</span>,1,.type=<span class="stringliteral">&quot;char *&quot;</span>,.shorthand=<span class="stringliteral">&quot;-t&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// error code var </span></div>
 <div class="line">    <a class="code hl_enumeration" href="d3/db7/plib_8h.html#afe6a6572169aee3b8a8e0bceab96c5a9">pl_r</a> ret; </div>
@@ -126,27 +126,22 @@ Files</h2></td></tr>
 <div class="line">            printf(<span class="stringliteral">&quot;&#39;%s&#39;\n&quot;</span>, pl_arg_value(test),0);</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span>(<a class="code hl_define" href="d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888">PL_R</a>(<a class="code hl_function" href="d1/dbe/include_8h.html#a0bed8474bd33a912769360766f6b10d4">help</a>))</div>
-<div class="line">            <a class="code hl_function" href="d3/db7/plib_8h.html#ab2963c491879d340a6d185801b67ebaa">pl_help</a>(); </div>
+<div class="line">            pl_help(); </div>
 <div class="line">    </div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
 <div class="line">        <span class="comment">// handle errors</span></div>
-<div class="line">        printf(<span class="stringliteral">&quot;error &#39;%s&#39; (&#39;%s&#39;)\n&quot;</span>, <a class="code hl_define" href="d3/db7/plib_8h.html#a2fff4b4869e460c1d102511abb189fcf">PL_E</a>(ret), <a class="code hl_define" href="d3/db7/plib_8h.html#a9fa27bd33aa602f21e9dca295c55c2cb">PL_LAST_ARG</a>);</div>
-<div class="line">        <a class="code hl_function" href="d3/db7/plib_8h.html#ab2963c491879d340a6d185801b67ebaa">pl_help</a>();</div>
+<div class="line">        printf(<span class="stringliteral">&quot;error &#39;%s&#39; (&#39;%s&#39;)\n&quot;</span>, PL_E(ret), PL_LAST_ARG);</div>
+<div class="line">        pl_help();</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// exit</span></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="ainclude_8h_html_a0bed8474bd33a912769360766f6b10d4"><div class="ttname"><a href="d1/dbe/include_8h.html#a0bed8474bd33a912769360766f6b10d4">help</a></div><div class="ttdeci">void help(void)</div><div class="ttdoc">Custom help function, mostly just a pl_help wrapper.</div><div class="ttdef"><b>Definition</b> lib.c:16</div></div>
-<div class="ttc" id="amain_8c_html_ac490e54d26e537126a97540acf0b1cba"><div class="ttname"><a href="d0/d29/main_8c.html#ac490e54d26e537126a97540acf0b1cba">main</a></div><div class="ttdeci">int main(const int c, const char *v[])</div><div class="ttdoc">main database loop</div><div class="ttdef"><b>Definition</b> main.c:17</div></div>
 <div class="ttc" id="aplib_8h_html"><div class="ttname"><a href="d3/db7/plib_8h.html">plib.h</a></div><div class="ttdoc">Basic argument parsing library.</div></div>
-<div class="ttc" id="aplib_8h_html_a2fff4b4869e460c1d102511abb189fcf"><div class="ttname"><a href="d3/db7/plib_8h.html#a2fff4b4869e460c1d102511abb189fcf">PL_E</a></div><div class="ttdeci">#define PL_E(i)</div><div class="ttdoc">convert a return code to a string using pl_r to pl_s array</div><div class="ttdef"><b>Definition</b> plib.h:517</div></div>
-<div class="ttc" id="aplib_8h_html_a9fa27bd33aa602f21e9dca295c55c2cb"><div class="ttname"><a href="d3/db7/plib_8h.html#a9fa27bd33aa602f21e9dca295c55c2cb">PL_LAST_ARG</a></div><div class="ttdeci">#define PL_LAST_ARG</div><div class="ttdoc">get the last argument parsed by pl_proc</div><div class="ttdef"><b>Definition</b> plib.h:509</div></div>
-<div class="ttc" id="aplib_8h_html_ab2963c491879d340a6d185801b67ebaa"><div class="ttname"><a href="d3/db7/plib_8h.html#ab2963c491879d340a6d185801b67ebaa">pl_help</a></div><div class="ttdeci">void pl_help(void)</div><div class="ttdoc">prints argument details</div><div class="ttdef"><b>Definition</b> plib.c:160</div></div>
-<div class="ttc" id="aplib_8h_html_acbd1b26ec17499d33dcc6aa862f2f888"><div class="ttname"><a href="d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888">PL_R</a></div><div class="ttdeci">#define PL_R(arg)</div><div class="ttdoc">check if argument has been run without PL_SUCCESS comparison this macro just removes the need to use ...</div><div class="ttdef"><b>Definition</b> plib.h:336</div></div>
-<div class="ttc" id="aplib_8h_html_acd82187d4f87128df6701e1117951d63"><div class="ttname"><a href="d3/db7/plib_8h.html#acd82187d4f87128df6701e1117951d63">PL_P</a></div><div class="ttdeci">#define PL_P(...)</div><div class="ttdoc">wrapper for pl_arg_global_ptr that removes use of struct type definition.</div><div class="ttdef"><b>Definition</b> plib.h:472</div></div>
-<div class="ttc" id="aplib_8h_html_afe6a6572169aee3b8a8e0bceab96c5a9"><div class="ttname"><a href="d3/db7/plib_8h.html#afe6a6572169aee3b8a8e0bceab96c5a9">pl_r</a></div><div class="ttdeci">pl_r</div><div class="ttdoc">PLib return codes.</div><div class="ttdef"><b>Definition</b> plib.h:222</div></div>
-<div class="ttc" id="astructpl__arg_html"><div class="ttname"><a href="d4/d1b/structpl__arg.html">pl_arg</a></div><div class="ttdoc">argument options</div><div class="ttdef"><b>Definition</b> plib.h:160</div></div>
+<div class="ttc" id="aplib_8h_html_acbd1b26ec17499d33dcc6aa862f2f888"><div class="ttname"><a href="d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888">PL_R</a></div><div class="ttdeci">#define PL_R(arg)</div><div class="ttdoc">check if argument has been run without PL_SUCCESS comparison this macro just removes the need to use ...</div><div class="ttdef"><b>Definition</b> plib.h:345</div></div>
+<div class="ttc" id="aplib_8h_html_afe6a6572169aee3b8a8e0bceab96c5a9"><div class="ttname"><a href="d3/db7/plib_8h.html#afe6a6572169aee3b8a8e0bceab96c5a9">pl_r</a></div><div class="ttdeci">pl_r</div><div class="ttdoc">PLib return codes.</div><div class="ttdef"><b>Definition</b> plib.h:231</div></div>
+<div class="ttc" id="astructpl__arg_html"><div class="ttname"><a href="d4/d1b/structpl__arg.html">pl_arg</a></div><div class="ttdoc">argument options</div><div class="ttdef"><b>Definition</b> plib.h:169</div></div>
 </div><!-- fragment --> <h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
 Usage librarys</h1>
 <blockquote class="doxtable">
@@ -169,8 +164,8 @@ Changelog</h1>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d3/db7/plib_8h.html">plib.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="d0/d29/main_8c.html#ac490e54d26e537126a97540acf0b1cba">main</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> c, <span class="keyword">const</span> <span class="keywordtype">char</span> *v[]){</div>
-<div class="line">    <a class="code hl_struct" href="d4/d1b/structpl__arg.html">pl_arg</a> *test = <a class="code hl_define" href="d3/db7/plib_8h.html#acd82187d4f87128df6701e1117951d63">PL_P</a>(<span class="stringliteral">&quot;--test&quot;</span>,.takes_value = 1);</div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keyword">const</span> <span class="keywordtype">int</span> c, <span class="keyword">const</span> <span class="keywordtype">char</span> *v[]){</div>
+<div class="line">    <a class="code hl_struct" href="d4/d1b/structpl__arg.html">pl_arg</a> *test = PL_P(<span class="stringliteral">&quot;--test&quot;</span>,.takes_value = 1);</div>
 <div class="line">    <a class="code hl_enumeration" href="d3/db7/plib_8h.html#afe6a6572169aee3b8a8e0bceab96c5a9">pl_r</a> ret = PL_FAILURE;</div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">if</span>((ret = pl_proc(c,v)) == PL_SUCCESS){</div>
@@ -186,10 +181,10 @@ Changelog</h1>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
 <div class="line">        <span class="comment">// handle errors </span></div>
 <div class="line">        printf(<span class="stringliteral">&quot;Error: &#39;%s&#39; from &#39;%s&#39;\n&quot;</span>,</div>
-<div class="line">                <a class="code hl_define" href="d3/db7/plib_8h.html#a2fff4b4869e460c1d102511abb189fcf">PL_E</a>(ret),</div>
-<div class="line">                <a class="code hl_define" href="d3/db7/plib_8h.html#a9fa27bd33aa602f21e9dca295c55c2cb">PL_LAST_ARG</a>);</div>
+<div class="line">                PL_E(ret),</div>
+<div class="line">                PL_LAST_ARG);</div>
 <div class="line"> </div>
-<div class="line">        <a class="code hl_function" href="d3/db7/plib_8h.html#ab2963c491879d340a6d185801b67ebaa">pl_help</a>();</div>
+<div class="line">        pl_help();</div>
 <div class="line">        <span class="keywordflow">return</span> 1;</div>
 <div class="line">    }</div>
 <div class="line"> </div>

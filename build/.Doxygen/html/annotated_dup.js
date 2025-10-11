@@ -1,13 +1,30 @@
 var annotated_dup =
 [
+    [ "auth_config", "d9/dfa/structauth__config.html", null ],
     [ "border_opt", "d0/d37/structborder__opt.html", null ],
     [ "box_opt", "d1/d3f/structbox__opt.html", null ],
+    [ "cJSON", "db/d68/structcJSON.html", null ],
+    [ "cJSON_Hooks", "dc/d55/structcJSON__Hooks.html", null ],
+    [ "context_t", "db/db1/structcontext__t.html", null ],
     [ "csv_line", "da/dd1/structcsv__line.html", null ],
+    [ "error", "df/d8b/structerror.html", null ],
     [ "gc", "d3/d7d/structgc.html", null ],
     [ "InputEvent", "df/d20/structInputEvent.html", null ],
+    [ "internal_hooks", "d1/d07/structinternal__hooks.html", null ],
+    [ "parse_buffer", "db/d68/structparse__buffer.html", null ],
     [ "pl_arg", "d4/d1b/structpl__arg.html", null ],
+    [ "printbuffer", "d1/dc7/structprintbuffer.html", null ],
     [ "solid_opt", "de/dca/structsolid__opt.html", null ],
     [ "sprite_opt", "d8/d5e/structsprite__opt.html", null ],
+    [ "tabpath_t", "dc/d8d/structtabpath__t.html", null ],
     [ "termsize", "d8/dd4/structtermsize.html", null ],
-    [ "title_opt", "d8/d5d/structtitle__opt.html", null ]
+    [ "title_opt", "d8/d5d/structtitle__opt.html", null ],
+    [ "token_t", "d1/d20/structtoken__t.html", null ],
+    [ "toml_array_t", "de/d72/structtoml__array__t.html", null ],
+    [ "toml_arritem_t", "d9/d2c/structtoml__arritem__t.html", null ],
+    [ "toml_datum_t", "dc/d0a/structtoml__datum__t.html", null ],
+    [ "toml_keyval_t", "da/d72/structtoml__keyval__t.html", null ],
+    [ "toml_table_t", "dd/dd7/structtoml__table__t.html", null ],
+    [ "toml_timestamp_t", "d9/d64/structtoml__timestamp__t.html", null ],
+    [ "url_data", "d0/dfa/structurl__data.html", null ]
 ];

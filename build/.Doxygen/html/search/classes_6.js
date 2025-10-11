@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['termsize_0',['termsize',['../d8/dd4/structtermsize.html',1,'']]],
-  ['title_5fopt_1',['title_opt',['../d8/d5d/structtitle__opt.html',1,'']]]
+  ['parse_5fbuffer_0',['parse_buffer',['../db/d68/structparse__buffer.html',1,'']]],
+  ['pl_5farg_1',['pl_arg',['../d4/d1b/structpl__arg.html',1,'']]],
+  ['printbuffer_2',['printbuffer',['../d1/dc7/structprintbuffer.html',1,'']]]
 ];
