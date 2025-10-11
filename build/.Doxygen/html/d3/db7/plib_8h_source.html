@@ -174,7 +174,7 @@ $(function(){initNavTree('d3/db7/plib_8h_source.html','../../',''); });
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span></div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><a class="code hl_enumeration" href="../../d3/db7/plib_8h.html#afe6a6572169aee3b8a8e0bceab96c5a9">pl_r</a> <a class="code hl_function" href="../../d3/db7/plib_8h.html#a5bf80193f6d851b4a997bd1a3a263303">pl_arg_run</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d1b/structpl__arg.html">pl_arg</a> *local);</div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="../../d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888">  345</a></span><span class="preprocessor">#define PL_R(arg) pl_arg_run(arg) == PL_SUCCESS</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="../../d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888">  345</a></span><span class="preprocessor">#define PL_R(arg) (pl_arg_run(arg) == PL_SUCCESS)</span></div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="comment">/* returns PL_SUCCESS of if ALL arguments set where used </span></div>

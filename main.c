@@ -12,8 +12,7 @@ int main(const int c, const char *v[]) {
   pl_r ret;
 
 	// parse plib arguments
-  if ((ret = pl_proc(c, v)) != PL_SUCCESS)
-		goto help_exit; 
+  if ((ret = pl_proc(c, v)) == PL_SUCCESS){
 
 	// if --help 
 	/*if (PL_R(arg_help)){
@@ -26,6 +25,7 @@ int main(const int c, const char *v[]) {
 	if(PL_R(arg_config_paths)){
 		printf("Default config path is: \"%s\"\n",DEFAULT_CONFIG_PATH);
 		quit(SUCCESS);
+	}
 	}
 
 	// get the config file 
