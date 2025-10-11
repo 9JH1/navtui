@@ -11,12 +11,16 @@ int main(const int c, const char *v[]) {
 	pl_arg *arg_config_path = PL_P("--config","load a config file",.takes_value = 1);
   pl_r ret;
 
+	// parse plib arguments
   if ((ret = pl_proc(c, v)) != PL_SUCCESS)
-		goto help_exit;
+		goto help_exit; 
 
+	// if --help 
 	if (PL_R(arg_help))
 		goto help_exit;
 
+
+	// if config-path
 	if(PL_R(arg_config_paths)){
 		printf("Default config path is: \"%s\"\n",DEFAULT_CONFIG_PATH);
 		quit(SUCCESS);

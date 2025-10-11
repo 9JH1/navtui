@@ -1,7 +1,7 @@
 #!/bin/bash
 build_path="build/src/"
 file_name="navtui"
-extra_flags="$(pkg-config --cflags --libs libgcrypt libcurl)" 
+extra_flags="-DPL_VERBOSE_ENABLE $(pkg-config --cflags --libs libgcrypt libcurl)" 
 main_flags="main.c -o $build_path$file_name src/*.c src/remote/plib/*.c src/remote/plib/lib/*.c src/remote/json/cjson.c src/remote/toml/toml.c $extra_flags"
 
 # handle path
