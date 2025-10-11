@@ -16,8 +16,10 @@ int main(const int c, const char *v[]) {
 		goto help_exit; 
 
 	// if --help 
-	if (PL_R(arg_help))
+	if (PL_R(arg_help)){
+		printf("--help called\n");
 		goto help_exit;
+	}
 
 
 	// if config-path
