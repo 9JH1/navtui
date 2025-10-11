@@ -15,10 +15,10 @@ int main(const int c, const char *v[]) {
   if ((ret = pl_proc(c, v)) == PL_SUCCESS){
 
 	// if --help 
-	/*if (PL_R(arg_help)){
+	if (PL_R(arg_help)){
 		printf("--help called\n");
 		goto help_exit;
-	}*/
+	}
 
 
 	// if config-path
