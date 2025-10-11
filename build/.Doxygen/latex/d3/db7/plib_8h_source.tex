@@ -87,7 +87,7 @@
 \DoxyCodeLine{00322\ }
 \DoxyCodeLine{00336\ \mbox{\hyperlink{plib_8h_afe6a6572169aee3b8a8e0bceab96c5a9}{pl\_r}}\ \mbox{\hyperlink{plib_8h_a5bf80193f6d851b4a997bd1a3a263303}{pl\_arg\_run}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *local);}
 \DoxyCodeLine{00337\ \ }
-\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ PL\_R(arg)\ (pl\_arg\_run(arg)\ ==\ PL\_SUCCESS)}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ PL\_R(arg)\ pl\_arg\_run(arg)\ ==\ PL\_SUCCESS}}
 \DoxyCodeLine{00346\ }
 \DoxyCodeLine{00347\ }
 \DoxyCodeLine{00348\ \textcolor{comment}{/*\ returns\ PL\_SUCCESS\ of\ if\ ALL\ arguments\ set\ where\ used\ }}
@@ -198,39 +198,53 @@
 \DoxyCodeLine{00453\ \mbox{\hyperlink{structpl__arg}{pl\_arg}}\ *pl\_arg\_by\_name(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name);}
 \DoxyCodeLine{00454\ }
 \DoxyCodeLine{00455\ }
-\DoxyCodeLine{00456\ \textcolor{comment}{//\ wrapper\ for\ pl\_arg\_get\_name...}}
-\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ PL\_GETN(name)\ pl\_arg\_by\_name(name)}}
-\DoxyCodeLine{00458\ }
-\DoxyCodeLine{00459\ }
-\DoxyCodeLine{00460\ \textcolor{comment}{/*\ get\ a\ pointer\ to\ an\ arg\ using\ index\ }}
-\DoxyCodeLine{00461\ \textcolor{comment}{\ *\ see\ pl\_a\ and\ PL\_A.\ */}\ }
-\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#define\ PL\_GETI(idx)\ \&PL\_ARGS[idx]}}
-\DoxyCodeLine{00463\ }
-\DoxyCodeLine{00464\ }
-\DoxyCodeLine{00465\ \textcolor{comment}{//\ auto\ grab\ argv\ and\ argc\ if\ they\ are\ named\ as\ such.}}
-\DoxyCodeLine{00466\ }
-\DoxyCodeLine{00467\ }
-\DoxyCodeLine{00468\ \textcolor{comment}{/*\ get\ the\ last\ argument\ parsed\ by\ pl\_proc,\ }}
-\DoxyCodeLine{00469\ \textcolor{comment}{\ *\ super\ useful\ in\ debugging\ and\ error\ output\ */}}
-\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#define\ PL\_LAST\_ARG\ (PL\_PROC\_END\_ARGC\ >=\ 0)\ ?\ \(\backslash\)}}
-\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (PL\_ARGV[PL\_PROC\_END\_ARGC])\ :\ \(\backslash\)}}
-\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pl\_s[PL\_INVERT(PL\_NO\_ARGUMENTS\_GIVEN)]}}
+\DoxyCodeLine{00456\ \textcolor{comment}{/*\ basic\ optimize\ macro\ for\ pl\_arg\_run,\ }}
+\DoxyCodeLine{00457\ \textcolor{comment}{\ *\ before\ after:}}
+\DoxyCodeLine{00458\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00459\ \textcolor{comment}{\ *\ if(pl\_arg\_run(arg)\ ==\ PL\_SUCCESS)\{}}
+\DoxyCodeLine{00460\ \textcolor{comment}{\ *\ ...\ }}
+\DoxyCodeLine{00461\ \textcolor{comment}{\ *\ \}}}
+\DoxyCodeLine{00462\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00463\ \textcolor{comment}{\ *\ if(PL\_R(arg))\{}}
+\DoxyCodeLine{00464\ \textcolor{comment}{\ *\ ...}}
+\DoxyCodeLine{00465\ \textcolor{comment}{\ *\ \}}}
+\DoxyCodeLine{00466\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\#define\ PL\_R(arg)\ (pl\_arg\_run(arg)\ ==\ PL\_SUCCESS)\ ?\ 1\ :\ 0\ }}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \textcolor{comment}{//\ wrapper\ for\ pl\_arg\_get\_name...}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#define\ PL\_GETN(name)\ pl\_arg\_by\_name(name)}}
+\DoxyCodeLine{00472\ }
 \DoxyCodeLine{00473\ }
-\DoxyCodeLine{00474\ }
-\DoxyCodeLine{00475\ \textcolor{comment}{//\ convert\ a\ return\ code\ to\ a\ string\ using\ pl\_r\ to\ pl\_s\ array}}
-\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#define\ PL\_E(i)\ pl\_s[PL\_INVERT(i)]}}
+\DoxyCodeLine{00474\ \textcolor{comment}{/*\ get\ a\ pointer\ to\ an\ arg\ using\ index\ }}
+\DoxyCodeLine{00475\ \textcolor{comment}{\ *\ see\ pl\_a\ and\ PL\_A.\ */}\ }
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#define\ PL\_GETI(idx)\ \&PL\_ARGS[idx]}}
 \DoxyCodeLine{00477\ }
 \DoxyCodeLine{00478\ }
-\DoxyCodeLine{00479\ \textcolor{comment}{/*\ arguments\ can\ be\ run\ using\ either\ their\ .name\ or\ .shorthand\ values,}}
-\DoxyCodeLine{00480\ \textcolor{comment}{\ *\ this\ function\ returns\ the\ method\ used\ when\ the\ argument\ was\ parsed.}}
-\DoxyCodeLine{00481\ \textcolor{comment}{\ *\ note\ this\ won't\ work\ if\ the\ the\ user\ uses\ the\ same\ flag\ multiple\ }}
-\DoxyCodeLine{00482\ \textcolor{comment}{\ *\ times\ and\ with\ both\ the\ shorthand\ and\ name\ */}}
-\DoxyCodeLine{00483\ \textcolor{preprocessor}{\#define\ pl\_arg\_sys(arg)\ (arg-\/>triggered\ ==\ 1)\ ?\ ((arg-\/>shorthand\_triggered\ ==\ 1)\ ?\ arg-\/>shorthand\ :\ arg-\/>name)\ :\ NULL}}
-\DoxyCodeLine{00484\ }
-\DoxyCodeLine{00485\ }
-\DoxyCodeLine{00486\ \textcolor{comment}{//\ return\ the\ amount\ of\ values\ an\ argument\ was\ run\ with}}
-\DoxyCodeLine{00487\ \textcolor{preprocessor}{\#define\ pl\_arg\_value\_count(parg)\ parg-\/>value\_idx}}
-\DoxyCodeLine{00488\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_H}}
-\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00479\ \textcolor{comment}{//\ auto\ grab\ argv\ and\ argc\ if\ they\ are\ named\ as\ such.}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \textcolor{comment}{/*\ get\ the\ last\ argument\ parsed\ by\ pl\_proc,\ }}
+\DoxyCodeLine{00483\ \textcolor{comment}{\ *\ super\ useful\ in\ debugging\ and\ error\ output\ */}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\#define\ PL\_LAST\_ARG\ (PL\_PROC\_END\_ARGC\ >=\ 0)\ ?\ \(\backslash\)}}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (PL\_ARGV[PL\_PROC\_END\_ARGC])\ :\ \(\backslash\)}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pl\_s[PL\_INVERT(PL\_NO\_ARGUMENTS\_GIVEN)]}}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \textcolor{comment}{//\ convert\ a\ return\ code\ to\ a\ string\ using\ pl\_r\ to\ pl\_s\ array}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#define\ PL\_E(i)\ pl\_s[PL\_INVERT(i)]}}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \textcolor{comment}{/*\ arguments\ can\ be\ run\ using\ either\ their\ .name\ or\ .shorthand\ values,}}
+\DoxyCodeLine{00494\ \textcolor{comment}{\ *\ this\ function\ returns\ the\ method\ used\ when\ the\ argument\ was\ parsed.}}
+\DoxyCodeLine{00495\ \textcolor{comment}{\ *\ note\ this\ won't\ work\ if\ the\ the\ user\ uses\ the\ same\ flag\ multiple\ }}
+\DoxyCodeLine{00496\ \textcolor{comment}{\ *\ times\ and\ with\ both\ the\ shorthand\ and\ name\ */}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#define\ pl\_arg\_sys(arg)\ (arg-\/>triggered\ ==\ 1)\ ?\ ((arg-\/>shorthand\_triggered\ ==\ 1)\ ?\ arg-\/>shorthand\ :\ arg-\/>name)\ :\ NULL}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \textcolor{comment}{//\ return\ the\ amount\ of\ values\ an\ argument\ was\ run\ with}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#define\ pl\_arg\_value\_count(parg)\ parg-\/>value\_idx}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_H}}
+\DoxyCodeLine{00503\ }
 
 \end{DoxyCode}

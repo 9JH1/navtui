@@ -118,6 +118,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:acbd1b26ec17499d33dcc6aa862f2f888"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if argument has been run without PL_SUCCESS comparison this macro just removes the need to use the PL_SUCCESS comparison which removes clutter and line size.  <br /></td></tr>
 <tr class="memitem:a7861a13243875e0d471c6345fdcca7de" id="r_a7861a13243875e0d471c6345fdcca7de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7861a13243875e0d471c6345fdcca7de">PL_A</a>(...)</td></tr>
 <tr class="memitem:acd82187d4f87128df6701e1117951d63" id="r_acd82187d4f87128df6701e1117951d63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd82187d4f87128df6701e1117951d63">PL_P</a>(...)</td></tr>
+<tr class="memitem:acbd1b26ec17499d33dcc6aa862f2f888" id="r_acbd1b26ec17499d33dcc6aa862f2f888"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbd1b26ec17499d33dcc6aa862f2f888">PL_R</a>(arg)</td></tr>
+<tr class="memdesc:acbd1b26ec17499d33dcc6aa862f2f888"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if argument has been run without PL_SUCCESS comparison this macro just removes the need to use the PL_SUCCESS comparison which removes clutter and line size.  <br /></td></tr>
 <tr class="memitem:a7887ae8c8869a4abb335d4287f03d5e8" id="r_a7887ae8c8869a4abb335d4287f03d5e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7887ae8c8869a4abb335d4287f03d5e8">PL_GETN</a>(name)</td></tr>
 <tr class="memitem:a0348dc4d50ec929a2ebe8261f30b9b2c" id="r_a0348dc4d50ec929a2ebe8261f30b9b2c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0348dc4d50ec929a2ebe8261f30b9b2c">PL_GETI</a>(idx)</td></tr>
 <tr class="memitem:a9fa27bd33aa602f21e9dca295c55c2cb" id="r_a9fa27bd33aa602f21e9dca295c55c2cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa27bd33aa602f21e9dca295c55c2cb">PL_LAST_ARG</a></td></tr>
@@ -202,7 +204,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>PL_PROC_END_ARGC</b></
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aplib_8h_html"><div class="ttname"><a href="../../d3/db7/plib_8h.html">plib.h</a></div><div class="ttdoc">Basic argument parsing library.</div></div>
-<div class="ttc" id="aplib_8h_html_a390a51827a1a4a90278081695b6c63ed"><div class="ttname"><a href="#a390a51827a1a4a90278081695b6c63ed">pl_proc</a></div><div class="ttdeci">pl_r pl_proc(const int argc, const char *argv[])</div><div class="ttdoc">takes in an argc and argv and parse them in comparison to the arguments in PL_ARGS.</div><div class="ttdef"><b>Definition</b> plib.c:347</div></div>
+<div class="ttc" id="aplib_8h_html_a390a51827a1a4a90278081695b6c63ed"><div class="ttname"><a href="#a390a51827a1a4a90278081695b6c63ed">pl_proc</a></div><div class="ttdeci">pl_r pl_proc(const int argc, const char *argv[])</div><div class="ttdoc">takes in an argc and argv and parse them in comparison to the arguments in PL_ARGS.</div><div class="ttdef"><b>Definition</b> plib.c:327</div></div>
 <div class="ttc" id="astructpl__arg_html"><div class="ttname"><a href="../../d4/d1b/structpl__arg.html">pl_arg</a></div><div class="ttdoc">argument options</div><div class="ttdef"><b>Definition</b> plib.h:169</div></div>
 </div><!-- fragment --><p> As you can see we defined an argument called my_arg with the flag name of <span class="tt">--my-arg</span> and a description of "basic first argument". running this code outputs the following: </p><div class="fragment"><div class="line">Options:</div>
 <div class="line">  --my-arg | basic first argument!</div>
@@ -477,7 +479,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>PL_PROC_END_ARGC</b></
 </div>
 </div>
 <a id="acbd1b26ec17499d33dcc6aa862f2f888" name="acbd1b26ec17499d33dcc6aa862f2f888"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbd1b26ec17499d33dcc6aa862f2f888">&#9670;&#160;</a></span>PL_R</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd1b26ec17499d33dcc6aa862f2f888">&#9670;&#160;</a></span>PL_R <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -490,7 +492,35 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>PL_PROC_END_ARGC</b></
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(pl_arg_run(arg) == PL_SUCCESS)</div>
+<b>Value:</b><div class="fragment"><div class="line">pl_arg_run(arg) == PL_SUCCESS</div>
+</div><!-- fragment -->
+<p>check if argument has been run without PL_SUCCESS comparison this macro just removes the need to use the PL_SUCCESS comparison which removes clutter and line size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td><a class="el" href="../../d4/d1b/structpl__arg.html" title="argument options">pl_arg</a> * <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a5bf80193f6d851b4a997bd1a3a263303" title="check if argument has been run">pl_arg_run</a> </dd></dl>
+
+</div>
+</div>
+<a id="acbd1b26ec17499d33dcc6aa862f2f888" name="acbd1b26ec17499d33dcc6aa862f2f888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd1b26ec17499d33dcc6aa862f2f888">&#9670;&#160;</a></span>PL_R <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PL_R</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>arg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">(pl_arg_run(arg) == PL_SUCCESS) ? 1 : 0</div>
 </div><!-- fragment -->
 <p>check if argument has been run without PL_SUCCESS comparison this macro just removes the need to use the PL_SUCCESS comparison which removes clutter and line size. </p>
 <dl class="params"><dt>Parameters</dt><dd>

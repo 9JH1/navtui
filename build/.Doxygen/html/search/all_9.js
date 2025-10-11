@@ -15,7 +15,7 @@ var searchData=
   ['pl_5fproc_12',['PL_PROC',['../d3/db7/plib_8h.html#ac79b1ab013efd71cd9c1bbf4d3c11ed4',1,'plib.h']]],
   ['pl_5fproc_13',['pl_proc',['../d3/db7/plib_8h.html#a390a51827a1a4a90278081695b6c63ed',1,'plib.c']]],
   ['pl_5fproc_5fend_5fargc_14',['PL_PROC_END_ARGC',['../d3/db7/plib_8h.html#a1198d450fd97d833116a6248ea3ed746',1,'plib.c']]],
-  ['pl_5fr_15',['PL_R',['../d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888',1,'plib.h']]],
+  ['pl_5fr_15',['PL_R',['../d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888',1,'PL_R:&#160;plib.h'],['../d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888',1,'PL_R:&#160;plib.h']]],
   ['pl_5fr_16',['pl_r',['../d3/db7/plib_8h.html#afe6a6572169aee3b8a8e0bceab96c5a9',1,'plib.h']]],
   ['pl_5fverbose_17',['PL_VERBOSE',['../d3/db7/plib_8h.html#ae82e54eaded33c048955580cd5c1d75c',1,'plib.h']]],
   ['pl_5fversion_18',['PL_VERSION',['../d3/db7/plib_8h.html#a9c0ee1b5d23f5fc5139448dc7a412e24',1,'plib.h']]],

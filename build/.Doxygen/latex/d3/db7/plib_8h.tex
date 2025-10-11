@@ -31,6 +31,8 @@ struct \mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}}
 \item 
 \#define \mbox{\hyperlink{plib_8h_acd82187d4f87128df6701e1117951d63}{PL\+\_\+P}}(...)
 \item 
+\#define \mbox{\hyperlink{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}{PL\+\_\+R}}(arg)
+\begin{DoxyCompactList}\small\item\em check if argument has been run without PL\+\_\+\+SUCCESS comparison this macro just removes the need to use the PL\+\_\+\+SUCCESS comparison which removes clutter and line size. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{plib_8h_a7887ae8c8869a4abb335d4287f03d5e8}{PL\+\_\+\+GETN}}(name)
 \item 
 \#define \mbox{\hyperlink{plib_8h_a0348dc4d50ec929a2ebe8261f30b9b2c}{PL\+\_\+\+GETI}}(idx)
@@ -382,13 +384,37 @@ and after
 \end{DoxyCode}
  \Hypertarget{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}\index{plib.h@{plib.h}!PL\_R@{PL\_R}}
 \index{PL\_R@{PL\_R}!plib.h@{plib.h}}
-\doxysubsubsection{\texorpdfstring{PL\_R}{PL\_R}}
+\doxysubsubsection{\texorpdfstring{PL\_R}{PL\_R}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888} 
 \#define PL\+\_\+R(\begin{DoxyParamCaption}\item[{}]{arg}{}\end{DoxyParamCaption})}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{(pl\_arg\_run(arg)\ ==\ PL\_SUCCESS)}
+\DoxyCodeLine{pl\_arg\_run(arg)\ ==\ PL\_SUCCESS}
+
+\end{DoxyCode}
+
+
+check if argument has been run without PL\+\_\+\+SUCCESS comparison this macro just removes the need to use the PL\+\_\+\+SUCCESS comparison which removes clutter and line size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & \doxylink{structpl__arg}{pl\+\_\+arg} \texorpdfstring{$\ast$}{*} ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{plib_8h_a5bf80193f6d851b4a997bd1a3a263303}{pl\+\_\+arg\+\_\+run} 
+\end{DoxySeeAlso}
+\Hypertarget{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888}\index{plib.h@{plib.h}!PL\_R@{PL\_R}}
+\index{PL\_R@{PL\_R}!plib.h@{plib.h}}
+\doxysubsubsection{\texorpdfstring{PL\_R}{PL\_R}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{plib_8h_acbd1b26ec17499d33dcc6aa862f2f888} 
+\#define PL\+\_\+R(\begin{DoxyParamCaption}\item[{}]{arg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(pl\_arg\_run(arg)\ ==\ PL\_SUCCESS)\ ?\ 1\ :\ 0}
 
 \end{DoxyCode}
 

@@ -5,6 +5,7 @@ var plib_8h =
     [ "PL_INVERT", "d3/db7/plib_8h.html#a45171e7fa12f307982ccbe020218c141", null ],
     [ "PL_PROC", "d3/db7/plib_8h.html#ac79b1ab013efd71cd9c1bbf4d3c11ed4", null ],
     [ "PL_R", "d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888", null ],
+    [ "PL_R", "d3/db7/plib_8h.html#acbd1b26ec17499d33dcc6aa862f2f888", null ],
     [ "PL_VERBOSE", "d3/db7/plib_8h.html#ae82e54eaded33c048955580cd5c1d75c", null ],
     [ "PL_VERSION", "d3/db7/plib_8h.html#a9c0ee1b5d23f5fc5139448dc7a412e24", null ],
     [ "pl_arg", "d3/db7/plib_8h.html#ad75eee4eed558c05604388420e76105b", null ],
