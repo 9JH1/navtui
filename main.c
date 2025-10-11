@@ -27,11 +27,6 @@ int main(const int c, const char *v[]) {
 	}
 
 	// get the config file 
-	if(PL_R(arg_config_path)){
-		
-	} else {
-		
-	}
 
 	quit(SUCCESS);
 	
