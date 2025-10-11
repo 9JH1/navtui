@@ -5,8 +5,6 @@
  **/
 #include "../include.h"
 
-
-
 void quit(int code){
 	printf("\rexiting db with code %d..\n",code);
 	exit(code);
@@ -192,4 +190,19 @@ char *get_full_url(auth_config * config,char * path){
 			config->url_end);
 
 	return out;
+}
+
+int file_exist(const char *path) {
+  if (access(path, F_OK) == 0)
+    return 1;
+  return 0;
+}
+
+int dir_exist(const char *path) {
+  DIR *dir = opendir(path);
+  if (dir) {
+    closedir(dir);
+    return 1;
+  }
+  return 0;
 }

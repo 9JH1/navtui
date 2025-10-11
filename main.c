@@ -1,21 +1,40 @@
 #include "include.h"
 
+
+auth_config opt;
+toml_result_t config_file;
+
+
 int main(const int c, const char *v[]) {
   pl_arg *arg_help = PL_P("--help", "show this dialog");
   pl_arg *arg_config_paths = PL_P("--config-path", "show config path");
 	pl_arg *arg_config_path = PL_P("--config","load a config file",.takes_value = 1);
   pl_r ret;
 
-  if ((ret = pl_proc(c, v)) == PL_SUCCESS) {
-    if (PL_R(arg_help))
-      goto help_exit;
-  }
+  if ((ret = pl_proc(c, v)) != PL_SUCCESS)
+		goto help_exit;
 
-	// help dialog code	
+	if (PL_R(arg_help))
+		goto help_exit;
+
+	if(PL_R(arg_config_paths)){
+		printf("Default config path is: \"%s\"\n",DEFAULT_CONFIG_PATH);
+		quit(SUCCESS);
+	}
+
+	// get the config file 
+	if(PL_R(arg_config_path)){
+		
+	} else {
+		
+	}
+
+	quit(SUCCESS);
+	
+	// PLib error handling
 	help_exit:
   help();
 
-  // print error details and exit
   if (ret != PL_SUCCESS) {
     printf("error: '%s' from argument '%s'\n",
            PL_E(ret),    // error code stringify'd

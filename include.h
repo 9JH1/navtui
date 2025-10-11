@@ -12,6 +12,7 @@
 
 #include "src/remote/plib/plib.h"
 #include "src/remote/json/cjson.h"
+#include "src/remote/toml/toml.h"
 #include "src/platform.h"
 
 
@@ -22,8 +23,9 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <dirent.h>
 
-
+#define DEFAULT_CONFIG_PATH "~/.config/navtui/navtui.toml"
 #define MD5_DIGEST_LENGTH 16
 #define SUBSONIC_SALT_LEN 7
 
