@@ -13,6 +13,7 @@ int main(const int c, const char *v[]) {
 
 	// parse plib arguments
   if ((ret = pl_proc(c, v)) == PL_SUCCESS){
+		printf("help.triggered = %d\n",arg_help->triggered);
 
 	// if --help 
 	if (PL_R(arg_help)){
