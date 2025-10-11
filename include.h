@@ -9,12 +9,13 @@
 #ifndef INCLUDE 
 #define INCLUDE 
 
-// Third party
+
 #include "src/remote/plib/plib.h"
 #include "src/remote/json/cjson.h"
 #include "src/platform.h"
-#include <curl/curl.h>
 
+
+#include <curl/curl.h>
 #include <gcrypt.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,8 +23,10 @@
 #include <time.h>
 #include <unistd.h>
 
+
 #define MD5_DIGEST_LENGTH 16
 #define SUBSONIC_SALT_LEN 7
+
 
 /** 
  * @brief structure used in curl response fetching 
@@ -57,8 +60,6 @@ typedef enum {
 	FAIL = 1,
 	HELP_MENU_REF = 2,
 } return_codes;
-
-
 
 /**
  * @brief Custom exit function
