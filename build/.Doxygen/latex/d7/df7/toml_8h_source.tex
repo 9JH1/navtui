@@ -2,180 +2,127 @@
 \hypertarget{toml_8h_source}{}\label{toml_8h_source}\index{src/remote/toml/toml.h@{src/remote/toml/toml.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ \ MIT\ License}}
-\DoxyCodeLine{00003\ \textcolor{comment}{}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ \ Copyright\ (c)\ CK\ Tan}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ \ https://github.com/cktan/tomlc99}}
-\DoxyCodeLine{00006\ \textcolor{comment}{}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ \ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
-\DoxyCodeLine{00013\ \textcolor{comment}{}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ \ copies\ or\ substantial\ portions\ of\ the\ Software.}}
-\DoxyCodeLine{00016\ \textcolor{comment}{}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\ \ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ \ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
-\DoxyCodeLine{00022\ \textcolor{comment}{\ \ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
-\DoxyCodeLine{00023\ \textcolor{comment}{\ \ SOFTWARE.}}
-\DoxyCodeLine{00024\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ TOML\_H}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ TOML\_H}}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2024-\/2025,\ CK\ Tan.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ https://github.com/cktan/tomlc17/blob/main/LICENSE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ TOMLC17\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ TOMLC17\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ USAGE:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ 1.\ Call\ toml\_parse(),\ toml\_parse\_file(),\ or\ toml\_parse\_file\_ex()}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ 2.\ Check\ result.ok}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ 3.\ Use\ toml\_get()\ or\ toml\_seek()\ to\ query\ and\ traverse\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ result.toptab}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ 4.\ Call\ toml\_free()\ to\ release\ resources.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ TOML\_EXTERN\ extern\ "{}C"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ TOML\_EXTERN\ extern}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ TOML\_EXTERN\ extern\ "{}C"{}}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ TOML\_EXTERN\ extern}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__timestamp__t}{toml\_timestamp\_t}}\ \mbox{\hyperlink{structtoml__timestamp__t}{toml\_timestamp\_t}};}
-\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}};}
-\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}};}
-\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}};}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{comment}{/*\ Parse\ a\ file.\ Return\ a\ table\ on\ success,\ or\ 0\ otherwise.}}
-\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ Caller\ must\ toml\_free(the-\/return-\/value)\ after\ use.}}
-\DoxyCodeLine{00048\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00049\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *toml\_parse\_file(FILE\ *fp,\ \textcolor{keywordtype}{char}\ *errbuf,\ \textcolor{keywordtype}{int}\ errbufsz);}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{comment}{/*\ Parse\ a\ string\ containing\ the\ full\ config.}}
-\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ Return\ a\ table\ on\ success,\ or\ 0\ otherwise.}}
-\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ Caller\ must\ toml\_free(the-\/return-\/value)\ after\ use.}}
-\DoxyCodeLine{00054\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00055\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *toml\_parse(\textcolor{keywordtype}{char}\ *conf,\ \textcolor{comment}{/*\ NUL\ terminated,\ please.\ */}}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *errbuf,\ \textcolor{keywordtype}{int}\ errbufsz);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \textcolor{comment}{/*\ Free\ the\ table\ returned\ by\ toml\_parse()\ or\ toml\_parse\_file().\ Once}}
-\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ this\ function\ is\ called,\ any\ handles\ accessed\ through\ this\ tab}}
-\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ directly\ or\ indirectly\ are\ no\ longer\ valid.}}
-\DoxyCodeLine{00061\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00062\ TOML\_EXTERN\ \textcolor{keywordtype}{void}\ toml\_free(\mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab);}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{comment}{/*\ Timestamp\ types.\ The\ year,\ month,\ day,\ hour,\ minute,\ second,\ z}}
-\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ fields\ may\ be\ NULL\ if\ they\ are\ not\ relevant.\ e.g.\ In\ a\ DATE}}
-\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ type,\ the\ hour,\ minute,\ second\ and\ z\ fields\ will\ be\ NULLs.}}
-\DoxyCodeLine{00067\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00068\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__timestamp__t}{toml\_timestamp\_t}}\ \{}
-\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{struct\ }\{\ \textcolor{comment}{/*\ internal.\ do\ not\ use.\ */}}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ year,\ month,\ day;}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ hour,\ minute,\ second,\ millisec;}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{char}\ z[10];}
-\DoxyCodeLine{00073\ \ \ \}\ \_\_buffer;}
-\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{int}\ *year,\ *month,\ *day;}
-\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{int}\ *hour,\ *minute,\ *second,\ *millisec;}
-\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{char}\ *z;}
-\DoxyCodeLine{00077\ \};}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ \ Enhanced\ access\ methods}}
-\DoxyCodeLine{00081\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00082\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ \{}
-\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{int}\ ok;}
-\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{union\ }\{}
-\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{structtoml__timestamp__t}{toml\_timestamp\_t}}\ *ts;\ \textcolor{comment}{/*\ ts\ must\ be\ freed\ after\ use\ */}}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{char}\ *s;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ string\ value.\ s\ must\ be\ freed\ after\ use\ */}}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ b;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ bool\ value\ */}}
-\DoxyCodeLine{00088\ \ \ \ \ int64\_t\ i;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ int\ value\ */}}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ d;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ double\ value\ */}}
-\DoxyCodeLine{00090\ \ \ \}\ u;}
-\DoxyCodeLine{00091\ \};}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{comment}{/*\ on\ arrays:\ */}}
-\DoxyCodeLine{00094\ \textcolor{comment}{/*\ ...\ retrieve\ size\ of\ array.\ */}}
-\DoxyCodeLine{00095\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_array\_nelem(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr);}
-\DoxyCodeLine{00096\ \textcolor{comment}{/*\ ...\ retrieve\ values\ using\ index.\ */}}
-\DoxyCodeLine{00097\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_string\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00098\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_bool\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00099\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_int\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00100\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_double\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00101\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_timestamp\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00102\ \textcolor{comment}{/*\ ...\ retrieve\ array\ or\ table\ using\ index.\ */}}
-\DoxyCodeLine{00103\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *toml\_array\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00104\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *toml\_table\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{comment}{/*\ on\ tables:\ */}}
-\DoxyCodeLine{00107\ \textcolor{comment}{/*\ ...\ retrieve\ the\ key\ in\ table\ at\ keyidx.\ Return\ 0\ if\ out\ of\ range.\ */}}
-\DoxyCodeLine{00108\ TOML\_EXTERN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *toml\_key\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab,\ \textcolor{keywordtype}{int}\ keyidx);}
-\DoxyCodeLine{00109\ \textcolor{comment}{/*\ ...\ returns\ 1\ if\ key\ exists\ in\ tab,\ 0\ otherwise\ */}}
-\DoxyCodeLine{00110\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_key\_exists(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00111\ \textcolor{comment}{/*\ ...\ retrieve\ values\ using\ key.\ */}}
-\DoxyCodeLine{00112\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_string\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *arr,}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00114\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_bool\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *arr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00115\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_int\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *arr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00116\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_double\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *arr,}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00118\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_timestamp\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *arr,}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00120\ \textcolor{comment}{/*\ ..\ retrieve\ array\ or\ table\ using\ key.\ */}}
-\DoxyCodeLine{00121\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *toml\_array\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab,}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00123\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *toml\_table\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab,}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00127\ \textcolor{comment}{\ *\ lesser\ used}}
-\DoxyCodeLine{00128\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00129\ \textcolor{comment}{/*\ Return\ the\ array\ kind:\ 't'able,\ 'a'rray,\ 'v'alue,\ 'm'ixed\ */}}
-\DoxyCodeLine{00130\ TOML\_EXTERN\ \textcolor{keywordtype}{char}\ toml\_array\_kind(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr);}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \textcolor{comment}{/*\ For\ array\ kind\ 'v'alue,\ return\ the\ type\ of\ values}}
-\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ i:int,\ d:double,\ b:bool,\ s:string,\ t:time,\ D:date,\ T:timestamp,\ 'm'ixed}}
-\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ 0\ if\ unknown}}
-\DoxyCodeLine{00135\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00136\ TOML\_EXTERN\ \textcolor{keywordtype}{char}\ toml\_array\_type(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr);}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \textcolor{comment}{/*\ Return\ the\ key\ of\ an\ array\ */}}
-\DoxyCodeLine{00139\ TOML\_EXTERN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *toml\_array\_key(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr);}
+\DoxyCodeLine{00028\ \textcolor{keyword}{enum}\ toml\_type\_t\ \{}
+\DoxyCodeLine{00029\ \ \ TOML\_UNKNOWN\ =\ 0,}
+\DoxyCodeLine{00030\ \ \ TOML\_STRING,}
+\DoxyCodeLine{00031\ \ \ TOML\_INT64,}
+\DoxyCodeLine{00032\ \ \ TOML\_FP64,}
+\DoxyCodeLine{00033\ \ \ TOML\_BOOLEAN,}
+\DoxyCodeLine{00034\ \ \ TOML\_DATE,}
+\DoxyCodeLine{00035\ \ \ TOML\_TIME,}
+\DoxyCodeLine{00036\ \ \ TOML\_DATETIME,}
+\DoxyCodeLine{00037\ \ \ TOML\_DATETIMETZ,}
+\DoxyCodeLine{00038\ \ \ TOML\_ARRAY,}
+\DoxyCodeLine{00039\ \ \ TOML\_TABLE,}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ toml\_type\_t\ toml\_type\_t;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*\ This\ is\ a\ Node\ in\ a\ Tree\ that\ represents\ a\ toml\ document\ rooted}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ at\ toml\_result\_t::toptab.}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}};}
+\DoxyCodeLine{00047\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ \{}
+\DoxyCodeLine{00048\ \ \ toml\_type\_t\ type;}
+\DoxyCodeLine{00049\ \ \ uint32\_t\ flag;\ \textcolor{comment}{//\ internal}}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s;\ \textcolor{comment}{//\ same\ as\ str.ptr;\ use\ if\ there\ are\ no\ NUL\ in\ string.}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *ptr;\ \textcolor{comment}{//\ NUL\ terminated\ string}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ length\ excluding\ the\ terminating\ NUL.}}
+\DoxyCodeLine{00055\ \ \ \ \ \}\ str;}
+\DoxyCodeLine{00056\ \ \ \ \ int64\_t\ int64;\ \textcolor{comment}{//\ integer}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ fp64;\ \ \ \textcolor{comment}{//\ float}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ boolean;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{struct\ }\{\ \textcolor{comment}{//\ date,\ time}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ int16\_t\ year,\ month,\ day;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ int16\_t\ hour,\ minute,\ second;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ int32\_t\ usec;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ int16\_t\ tz;\ \textcolor{comment}{//\ in\ minutes}}
+\DoxyCodeLine{00064\ \ \ \ \ \}\ ts;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{struct\ }\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ array}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ int32\_t\ size;\ \ \ \ \ \ \ \textcolor{comment}{//\ count\ elem}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ *elem;\ \textcolor{comment}{//\ elem[]}}
+\DoxyCodeLine{00068\ \ \ \ \ \}\ arr;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ table}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ int32\_t\ size;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ count\ key}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **key;\ \ \ \ \textcolor{comment}{//\ key[]}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *len;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ len[]}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ *value;\ \textcolor{comment}{//\ value[]}}
+\DoxyCodeLine{00074\ \ \ \ \ \}\ tab;}
+\DoxyCodeLine{00075\ \ \ \}\ u;}
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{/*\ Result\ returned\ by\ toml\_parse()\ */}}
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}};}
+\DoxyCodeLine{00080\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ \{}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{bool}\ ok;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ success\ flag}}
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toptab;\ \textcolor{comment}{//\ valid\ if\ ok}}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{char}\ errmsg[200];\ \ \ \ \textcolor{comment}{//\ valid\ if\ not\ ok}}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ *\_\_internal;\ \ \ \ \textcolor{comment}{//\ do\ not\ use}}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00094\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ toml\_parse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src,\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00102\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ toml\_parse\_file(FILE\ *fp);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ toml\_parse\_file\_ex(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fname);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ TOML\_EXTERN\ \textcolor{keywordtype}{void}\ toml\_free(\mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ result);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_get(\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ table,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00128\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_seek(\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ table,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *multipart\_key);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ toml\_table\_find(\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}}\ table,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key)\ \{}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordflow}{return}\ toml\_get(table,\ key);}
+\DoxyCodeLine{00139\ \}}
 \DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \textcolor{comment}{/*\ Return\ the\ number\ of\ key-\/values\ in\ a\ table\ */}}
-\DoxyCodeLine{00142\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_table\_nkval(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab);}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \textcolor{comment}{/*\ Return\ the\ number\ of\ arrays\ in\ a\ table\ */}}
-\DoxyCodeLine{00145\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_table\_narr(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab);}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \textcolor{comment}{/*\ Return\ the\ number\ of\ sub-\/tables\ in\ a\ table\ */}}
-\DoxyCodeLine{00148\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_table\_ntab(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab);}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \textcolor{comment}{/*\ Return\ the\ key\ of\ a\ table*/}}
-\DoxyCodeLine{00151\ TOML\_EXTERN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *toml\_table\_key(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab);}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00154\ \textcolor{comment}{\ *\ misc}}
-\DoxyCodeLine{00155\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00156\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_utf8\_to\_ucs(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *orig,\ \textcolor{keywordtype}{int}\ len,\ int64\_t\ *ret);}
-\DoxyCodeLine{00157\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_ucs\_to\_utf8(int64\_t\ code,\ \textcolor{keywordtype}{char}\ buf[6]);}
-\DoxyCodeLine{00158\ TOML\_EXTERN\ \textcolor{keywordtype}{void}\ toml\_set\_memutil(\textcolor{keywordtype}{void}\ *(*xxmalloc)(\textcolor{keywordtype}{size\_t}),}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*xxfree)(\textcolor{keywordtype}{void}\ *));}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00162\ \textcolor{comment}{\ *\ \ deprecated}}
-\DoxyCodeLine{00163\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00164\ \textcolor{comment}{/*\ A\ raw\ value,\ must\ be\ processed\ by\ toml\_rto*\ before\ using.\ */}}
-\DoxyCodeLine{00165\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *toml\_raw\_t;}
-\DoxyCodeLine{00166\ TOML\_EXTERN\ toml\_raw\_t\ toml\_raw\_in(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__table__t}{toml\_table\_t}}\ *tab,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key);}
-\DoxyCodeLine{00167\ TOML\_EXTERN\ toml\_raw\_t\ toml\_raw\_at(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__array__t}{toml\_array\_t}}\ *arr,\ \textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00168\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_rtos(toml\_raw\_t\ s,\ \textcolor{keywordtype}{char}\ **ret);}
-\DoxyCodeLine{00169\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_rtob(toml\_raw\_t\ s,\ \textcolor{keywordtype}{int}\ *ret);}
-\DoxyCodeLine{00170\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_rtoi(toml\_raw\_t\ s,\ int64\_t\ *ret);}
-\DoxyCodeLine{00171\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_rtod(toml\_raw\_t\ s,\ \textcolor{keywordtype}{double}\ *ret);}
-\DoxyCodeLine{00172\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_rtod\_ex(toml\_raw\_t\ s,\ \textcolor{keywordtype}{double}\ *ret,\ \textcolor{keywordtype}{char}\ *buf,\ \textcolor{keywordtype}{int}\ buflen);}
-\DoxyCodeLine{00173\ TOML\_EXTERN\ \textcolor{keywordtype}{int}\ toml\_rtots(toml\_raw\_t\ s,\ \mbox{\hyperlink{structtoml__timestamp__t}{toml\_timestamp\_t}}\ *ret);}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TOML\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00160\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ toml\_merge(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ *r1,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ *r2);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00167\ TOML\_EXTERN\ \textcolor{keywordtype}{bool}\ toml\_equiv(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ *r1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtoml__result__t}{toml\_result\_t}}\ *r2);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{comment}{/*\ Options\ that\ override\ tomlc17\ defaults\ globally\ */}}
+\DoxyCodeLine{00170\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__option__t}{toml\_option\_t}}\ \mbox{\hyperlink{structtoml__option__t}{toml\_option\_t}};}
+\DoxyCodeLine{00171\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtoml__option__t}{toml\_option\_t}}\ \{}
+\DoxyCodeLine{00172\ \ \ \textcolor{keywordtype}{bool}\ check\_utf8;\ \textcolor{comment}{//\ Check\ all\ chars\ are\ valid\ utf8;\ default:\ false.}}
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordtype}{void}\ *(*mem\_realloc)(\textcolor{keywordtype}{void}\ *ptr,\ \textcolor{keywordtype}{size\_t}\ size);\ \textcolor{comment}{//\ default:\ realloc()}}
+\DoxyCodeLine{00174\ \ \ void\ (*mem\_free)(\textcolor{keywordtype}{void}\ *ptr);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ default:\ free()}}
+\DoxyCodeLine{00175\ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00182\ TOML\_EXTERN\ \mbox{\hyperlink{structtoml__option__t}{toml\_option\_t}}\ toml\_default\_option(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00188\ TOML\_EXTERN\ \textcolor{keywordtype}{void}\ toml\_set\_option(\mbox{\hyperlink{structtoml__option__t}{toml\_option\_t}}\ opt);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TOMLC17\_H}}
 
 \end{DoxyCode}

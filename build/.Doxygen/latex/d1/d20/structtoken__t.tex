@@ -3,21 +3,35 @@
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structtoken__t_a48eb8ca85fec58a4e73488277ee5fa25}\label{structtoken__t_a48eb8ca85fec58a4e73488277ee5fa25} 
-tokentype\+\_\+t {\bfseries tok}
+\Hypertarget{structtoken__t_ad0935364cf949fc3b804bb3cb99a0dc4}\label{structtoken__t_ad0935364cf949fc3b804bb3cb99a0dc4} 
+toktyp\+\_\+t {\bfseries toktyp}
 \item 
 \Hypertarget{structtoken__t_a5cf292a3d1d8307e33577d0de76f723c}\label{structtoken__t_a5cf292a3d1d8307e33577d0de76f723c} 
 int {\bfseries lineno}
 \item 
-\Hypertarget{structtoken__t_a5d139c6bed0739675e2d92c7a3cc89f1}\label{structtoken__t_a5d139c6bed0739675e2d92c7a3cc89f1} 
-char \texorpdfstring{$\ast$}{*} {\bfseries ptr}
+\Hypertarget{structtoken__t_a3538339f4a4f7315257f9c9faeb4f50a}\label{structtoken__t_a3538339f4a4f7315257f9c9faeb4f50a} 
+\mbox{\hyperlink{structspan__t}{span\+\_\+t}} {\bfseries str}
 \item 
-\Hypertarget{structtoken__t_a20f0651b341ec0ef7c682aa4732d1284}\label{structtoken__t_a20f0651b341ec0ef7c682aa4732d1284} 
-int {\bfseries len}
-\item 
-\Hypertarget{structtoken__t_a1f9eaa3ef71b6eb804cb113606f32e27}\label{structtoken__t_a1f9eaa3ef71b6eb804cb113606f32e27} 
-int {\bfseries eof}
-\end{DoxyCompactItemize}
+\Hypertarget{structtoken__t_ae915fada9ad9689c6d51dfd6e3072a10}\label{structtoken__t_ae915fada9ad9689c6d51dfd6e3072a10} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int64\_t {\bfseries int64}\\
+\>double {\bfseries fp64}\\
+\>bool {\bfseries b1}\\
+\>struct \{\\
+\>\>int {\bfseries year}\\
+\>\>int {\bfseries month}\\
+\>\>int {\bfseries day}\\
+\>\>int {\bfseries hour}\\
+\>\>int {\bfseries minute}\\
+\>\>int {\bfseries sec}\\
+\>\>int {\bfseries usec}\\
+\>\>int {\bfseries tz}\\
+\>\} {\bfseries tsval}\\
+\} {\bfseries u}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

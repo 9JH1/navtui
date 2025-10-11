@@ -92,16 +92,40 @@ $(function(){initNavTree('d1/d20/structtoken__t.html','../../','da/dc8/structtok
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a48eb8ca85fec58a4e73488277ee5fa25" id="r_a48eb8ca85fec58a4e73488277ee5fa25"><td class="memItemLeft" align="right" valign="top"><a id="a48eb8ca85fec58a4e73488277ee5fa25" name="a48eb8ca85fec58a4e73488277ee5fa25"></a>
-tokentype_t&#160;</td><td class="memItemRight" valign="bottom"><b>tok</b></td></tr>
+<tr class="memitem:ad0935364cf949fc3b804bb3cb99a0dc4" id="r_ad0935364cf949fc3b804bb3cb99a0dc4"><td class="memItemLeft" align="right" valign="top"><a id="ad0935364cf949fc3b804bb3cb99a0dc4" name="ad0935364cf949fc3b804bb3cb99a0dc4"></a>
+toktyp_t&#160;</td><td class="memItemRight" valign="bottom"><b>toktyp</b></td></tr>
 <tr class="memitem:a5cf292a3d1d8307e33577d0de76f723c" id="r_a5cf292a3d1d8307e33577d0de76f723c"><td class="memItemLeft" align="right" valign="top"><a id="a5cf292a3d1d8307e33577d0de76f723c" name="a5cf292a3d1d8307e33577d0de76f723c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>lineno</b></td></tr>
-<tr class="memitem:a5d139c6bed0739675e2d92c7a3cc89f1" id="r_a5d139c6bed0739675e2d92c7a3cc89f1"><td class="memItemLeft" align="right" valign="top"><a id="a5d139c6bed0739675e2d92c7a3cc89f1" name="a5d139c6bed0739675e2d92c7a3cc89f1"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b></td></tr>
-<tr class="memitem:a20f0651b341ec0ef7c682aa4732d1284" id="r_a20f0651b341ec0ef7c682aa4732d1284"><td class="memItemLeft" align="right" valign="top"><a id="a20f0651b341ec0ef7c682aa4732d1284" name="a20f0651b341ec0ef7c682aa4732d1284"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>len</b></td></tr>
-<tr class="memitem:a1f9eaa3ef71b6eb804cb113606f32e27" id="r_a1f9eaa3ef71b6eb804cb113606f32e27"><td class="memItemLeft" align="right" valign="top"><a id="a1f9eaa3ef71b6eb804cb113606f32e27" name="a1f9eaa3ef71b6eb804cb113606f32e27"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>eof</b></td></tr>
+<tr class="memitem:a3538339f4a4f7315257f9c9faeb4f50a" id="r_a3538339f4a4f7315257f9c9faeb4f50a"><td class="memItemLeft" align="right" valign="top"><a id="a3538339f4a4f7315257f9c9faeb4f50a" name="a3538339f4a4f7315257f9c9faeb4f50a"></a>
+<a class="el" href="../../d1/d24/structspan__t.html">span_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>str</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft anon"><a id="ae915fada9ad9689c6d51dfd6e3072a10" name="ae915fada9ad9689c6d51dfd6e3072a10"></a>
+union {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:ad536f2a7ad342bf444a34a82656500c0" id="r_ad536f2a7ad342bf444a34a82656500c0"><td class="memItemLeft anon">
+&#160;&#160;&#160;int64_t&#160;&#160;&#160;<b>int64</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a7da575465e206ff1444d905b38039c9b" id="r_a7da575465e206ff1444d905b38039c9b"><td class="memItemLeft anon">
+&#160;&#160;&#160;double&#160;&#160;&#160;<b>fp64</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a536668260835e9c9b78f5a5b2f3ec0dc" id="r_a536668260835e9c9b78f5a5b2f3ec0dc"><td class="memItemLeft anon">
+&#160;&#160;&#160;bool&#160;&#160;&#160;<b>b1</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:"><td class="memItemLeft anon">
+&#160;&#160;&#160;struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:aa75e32ad2e176cb0c47e2ebfdcfd27df" id="r_aa75e32ad2e176cb0c47e2ebfdcfd27df"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>year</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:ad8bbd2d70002e670fa9c5da36501eeb7" id="r_ad8bbd2d70002e670fa9c5da36501eeb7"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>month</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a7cdaba3c26047335702abfcebaa8cd42" id="r_a7cdaba3c26047335702abfcebaa8cd42"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>day</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a6ab746819ba07775381eaed673242007" id="r_a6ab746819ba07775381eaed673242007"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>hour</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a9f4d5ca07118c2c669cce142e06cf5db" id="r_a9f4d5ca07118c2c669cce142e06cf5db"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>minute</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a9309af91c472d1322080fad79be4a384" id="r_a9309af91c472d1322080fad79be4a384"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>sec</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:ad787654e545de6f482e64d5de8dfad87" id="r_ad787654e545de6f482e64d5de8dfad87"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>usec</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a377d719e95f0015e7de8f2d6865f9114" id="r_a377d719e95f0015e7de8f2d6865f9114"><td class="memItemLeft anon">
+&#160;&#160;&#160;&#160;&#160;&#160;int&#160;&#160;&#160;<b>tz</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:adf2c1c935a6e797545e3b831e9de7d08" id="r_adf2c1c935a6e797545e3b831e9de7d08"><td class="memItemLeft anonEnd" valign="top">&#160;&#160;&#160;}&#160;&#160;&#160;<b>tsval</b></td></tr>
+<tr class="memitem:ae915fada9ad9689c6d51dfd6e3072a10" id="r_ae915fada9ad9689c6d51dfd6e3072a10"><td class="memItemLeft anonEnd" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><b>u</b></td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/remote/toml/<b>toml.c</b></li>

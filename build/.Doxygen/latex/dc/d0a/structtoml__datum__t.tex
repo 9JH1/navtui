@@ -3,18 +3,44 @@
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structtoml__datum__t_aaaa1a9c7276341b8c114b5ef67fb87bb}\label{structtoml__datum__t_aaaa1a9c7276341b8c114b5ef67fb87bb} 
-int {\bfseries ok}
+\Hypertarget{structtoml__datum__t_a9d4dcd6531c8d5007920ac5a0a0779e1}\label{structtoml__datum__t_a9d4dcd6531c8d5007920ac5a0a0779e1} 
+toml\+\_\+type\+\_\+t {\bfseries type}
 \item 
-\Hypertarget{structtoml__datum__t_ac54762f6dd83655ac98596b3170aeddb}\label{structtoml__datum__t_ac54762f6dd83655ac98596b3170aeddb} 
+\Hypertarget{structtoml__datum__t_a23c8b3b18997c8152b0c6a47ff16da5e}\label{structtoml__datum__t_a23c8b3b18997c8152b0c6a47ff16da5e} 
+uint32\+\_\+t {\bfseries flag}
+\item 
+\Hypertarget{structtoml__datum__t_a7096fd23aa21603693b77e619477ed23}\label{structtoml__datum__t_a7096fd23aa21603693b77e619477ed23} 
 \begin{tabbing}
 xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
 union \{\\
-\>\mbox{\hyperlink{structtoml__timestamp__t}{toml\_timestamp\_t}} \texorpdfstring{$\ast$}{*} {\bfseries ts}\\
-\>char \texorpdfstring{$\ast$}{*} {\bfseries s}\\
-\>int {\bfseries b}\\
-\>int64\_t {\bfseries i}\\
-\>double {\bfseries d}\\
+\>const char \texorpdfstring{$\ast$}{*} {\bfseries s}\\
+\>struct \{\\
+\>\>const char \texorpdfstring{$\ast$}{*} {\bfseries ptr}\\
+\>\>int {\bfseries len}\\
+\>\} {\bfseries str}\\
+\>int64\_t {\bfseries int64}\\
+\>double {\bfseries fp64}\\
+\>bool {\bfseries boolean}\\
+\>struct \{\\
+\>\>int16\_t {\bfseries year}\\
+\>\>int16\_t {\bfseries month}\\
+\>\>int16\_t {\bfseries day}\\
+\>\>int16\_t {\bfseries hour}\\
+\>\>int16\_t {\bfseries minute}\\
+\>\>int16\_t {\bfseries second}\\
+\>\>int32\_t {\bfseries usec}\\
+\>\>int16\_t {\bfseries tz}\\
+\>\} {\bfseries ts}\\
+\>struct \{\\
+\>\>int32\_t {\bfseries size}\\
+\>\>\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}} \texorpdfstring{$\ast$}{*} {\bfseries elem}\\
+\>\} {\bfseries arr}\\
+\>struct \{\\
+\>\>int32\_t {\bfseries size}\\
+\>\>const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries key}\\
+\>\>int \texorpdfstring{$\ast$}{*} {\bfseries len}\\
+\>\>\mbox{\hyperlink{structtoml__datum__t}{toml\_datum\_t}} \texorpdfstring{$\ast$}{*} {\bfseries value}\\
+\>\} {\bfseries tab}\\
 \} {\bfseries u}\\
 
 \end{tabbing}\end{DoxyCompactItemize}

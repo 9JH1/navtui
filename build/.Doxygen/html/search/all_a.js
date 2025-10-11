@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['return_5fcodes_0',['return_codes',['../d1/dbe/include_8h.html#aaca7161d951febc512af343029761de1',1,'include.h']]]
+  ['quit_0',['quit',['../d1/dbe/include_8h.html#a9733cadf4bf769517625a90c6e4e8696',1,'quit(int code):&#160;lib.c'],['../de/dd7/lib_8c.html#a9733cadf4bf769517625a90c6e4e8696',1,'quit(int code):&#160;lib.c']]]
 ];

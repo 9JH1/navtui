@@ -7,6 +7,7 @@ contains all function definitions
 
 {\ttfamily \#include "{}src/remote/plib/plib.\+h"{}}\newline
 {\ttfamily \#include "{}src/remote/json/cjson.\+h"{}}\newline
+{\ttfamily \#include "{}src/remote/toml/toml.\+h"{}}\newline
 {\ttfamily \#include "{}src/platform.\+h"{}}\newline
 {\ttfamily \#include $<$curl/curl.\+h$>$}\newline
 {\ttfamily \#include $<$gcrypt.\+h$>$}\newline
@@ -15,6 +16,7 @@ contains all function definitions
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,6 +26,9 @@ struct \mbox{\hyperlink{structauth__config}{auth\+\_\+config}}
 \begin{DoxyCompactList}\small\item\em local config file \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{include_8h_a814585e9e2b41f2f341c6368c39ba0c7}\label{include_8h_a814585e9e2b41f2f341c6368c39ba0c7} 
+\#define {\bfseries DEFAULT\+\_\+\+CONFIG\+\_\+\+PATH}~"{}\texorpdfstring{$\sim$}{\string~}/.config/navtui/navtui.\+toml"{}
 \item 
 \Hypertarget{include_8h_a09a4f4b2f28cbe522d9b80153666029c}\label{include_8h_a09a4f4b2f28cbe522d9b80153666029c} 
 \#define {\bfseries MD5\+\_\+\+DIGEST\+\_\+\+LENGTH}~16
