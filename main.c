@@ -24,7 +24,7 @@ int main(int c, char *v[]) {
       printf("Default config path is: \"%s\"\n", DEFAULT_CONFIG_PATH);
       quit(SUCCESS);
     }
-  }
+  } else goto help_exit;
 
 
   quit(SUCCESS);
