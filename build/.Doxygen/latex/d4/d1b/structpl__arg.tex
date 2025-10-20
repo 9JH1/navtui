@@ -2,7 +2,7 @@
 \hypertarget{structpl__arg}{}\label{structpl__arg}\index{pl\_arg@{pl\_arg}}
 
 
-argument options  
+main struct for arguments  
 
 
 
@@ -12,63 +12,53 @@ argument options
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structpl__arg_add7f9c094f2b098c730479140f3d995a}\label{structpl__arg_add7f9c094f2b098c730479140f3d995a} 
-const char \texorpdfstring{$\ast$}{*} {\bfseries name}
+\Hypertarget{structpl__arg_ad7e5eb4e70e7ae9af01a63f10fb8237d}\label{structpl__arg_ad7e5eb4e70e7ae9af01a63f10fb8237d} 
+char \texorpdfstring{$\ast$}{*} {\bfseries flag}
 \item 
-\Hypertarget{structpl__arg_a20f5ea129b0b4329b656884531ebd41b}\label{structpl__arg_a20f5ea129b0b4329b656884531ebd41b} 
-const char \texorpdfstring{$\ast$}{*} {\bfseries description}
+\Hypertarget{structpl__arg_a84f4156079eb3a27f5c9879f3d3e9851}\label{structpl__arg_a84f4156079eb3a27f5c9879f3d3e9851} 
+char \texorpdfstring{$\ast$}{*} {\bfseries desc}
+\item 
+\Hypertarget{structpl__arg_a1660212fe3f499229ad08c66f17c7a18}\label{structpl__arg_a1660212fe3f499229ad08c66f17c7a18} 
+char \texorpdfstring{$\ast$}{*} {\bfseries cat}
+\item 
+\Hypertarget{structpl__arg_a0399c2f030f07bcc0bd65e04b48ff612}\label{structpl__arg_a0399c2f030f07bcc0bd65e04b48ff612} 
+char \texorpdfstring{$\ast$}{*} {\bfseries type}
+\item 
+\Hypertarget{structpl__arg_a75baf271a0114e9e0f5a8036c79570e7}\label{structpl__arg_a75baf271a0114e9e0f5a8036c79570e7} 
+char \texorpdfstring{$\ast$}{*} {\bfseries short\+\_\+flag}
 \item 
 \Hypertarget{structpl__arg_affa479dfed110e1ed2d372d3754a86ed}\label{structpl__arg_affa479dfed110e1ed2d372d3754a86ed} 
 int {\bfseries takes\+\_\+value}
 \item 
-\Hypertarget{structpl__arg_a2459949327fb9860b466ef82b4725fc9}\label{structpl__arg_a2459949327fb9860b466ef82b4725fc9} 
-const char \texorpdfstring{$\ast$}{*} {\bfseries catagory}
+\Hypertarget{structpl__arg_adb7b3ff26196f94712bd203a22605d36}\label{structpl__arg_adb7b3ff26196f94712bd203a22605d36} 
+int {\bfseries required}
 \item 
-\Hypertarget{structpl__arg_a5227ad70b735dc65170802c8fff4fb5c}\label{structpl__arg_a5227ad70b735dc65170802c8fff4fb5c} 
-const char \texorpdfstring{$\ast$}{*} {\bfseries shorthand}
+\Hypertarget{structpl__arg_a5e457f78a190dac3b5748f34c18cb1fe}\label{structpl__arg_a5e457f78a190dac3b5748f34c18cb1fe} 
+int {\bfseries \+\_\+short\+\_\+run}
 \item 
-\Hypertarget{structpl__arg_af90b94b73dc85bab9ca6e4136046057c}\label{structpl__arg_af90b94b73dc85bab9ca6e4136046057c} 
-const char \texorpdfstring{$\ast$}{*} {\bfseries type}
-\item 
-\Hypertarget{structpl__arg_afbad832d4632bd6400b1101c55d175b6}\label{structpl__arg_afbad832d4632bd6400b1101c55d175b6} 
-char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries value}
-\item 
-\Hypertarget{structpl__arg_aa21da98737e91313813802416a62fa84}\label{structpl__arg_aa21da98737e91313813802416a62fa84} 
-int {\bfseries value\+\_\+cap}
-\item 
-\Hypertarget{structpl__arg_ac2688930fc856dafab640253006b3b6a}\label{structpl__arg_ac2688930fc856dafab640253006b3b6a} 
-int {\bfseries value\+\_\+idx}
-\item 
-\Hypertarget{structpl__arg_a83495a0a0397177c5921116a7ecb1990}\label{structpl__arg_a83495a0a0397177c5921116a7ecb1990} 
-int {\bfseries triggered}
-\item 
-\Hypertarget{structpl__arg_a9aaec77ff4b03e96592c0409276ecc0d}\label{structpl__arg_a9aaec77ff4b03e96592c0409276ecc0d} 
-int {\bfseries shorthand\+\_\+triggered}
+\Hypertarget{structpl__arg_ae3c4cd2ac612a9a69287153f84747123}\label{structpl__arg_ae3c4cd2ac612a9a69287153f84747123} 
+struct \mbox{\hyperlink{structdma}{dma}} {\bfseries \+\_\+value}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-argument options 
+main struct for arguments 
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & flag name eg {\ttfamily -\/-\/help} \\
+{\em flag} & flag name eg {\ttfamily -\/-\/help}, this is required \\
 \hline
-{\em description} & flag description (used in pl\+\_\+help) \\
+{\em desc} & description of flag \\
 \hline
-{\em takes\+\_\+value} & set whether or not the argument should expect a value \\
+{\em cat} & catagory, defaults to {\ttfamily Options\+:} \\
 \hline
-{\em catagory} & set a catagory for an argument, arguments of the same catagory are printed togeather in pl\+\_\+help \\
+{\em type} & type of argument (can be anything) \\
 \hline
-{\em type} & type of value, not actuall enforced but used in pl\+\_\+help instead. eg VOID or INT. \\
+{\em short\+\_\+flag} & shorthand version of flag eg -\/h \\
 \hline
-{\em value} & if {\ttfamily .takes\+\_\+value = 1} then the value(s) parsed in will be allocated here. \\
+{\em takes\+\_\+value} & does the arg take a value eg -\/v=\textquotesingle{}123\textquotesingle{} or -\/v \\
 \hline
-{\em value\+\_\+cap} & Value is dynamically allocated this is a variable used in the DMA. \\
-\hline
-{\em value\+\_\+idx} & same as value\+\_\+cap but this value also is the amount of arguments parsed into the flag, this doubles as the run count of any arguments that take a value. \\
-\hline
-{\em triggered} & this value is {\ttfamily \texorpdfstring{$>$}{>}1} if the argument was run and is {\ttfamily 0} if the arg was not run. this doubles as the run count for all arguments \\
+{\em required} & throws an error if an argument with this flag was not run. \\
 \hline
 \end{DoxyParams}
 

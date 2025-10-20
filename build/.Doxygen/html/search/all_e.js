@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['url_5fdata_0',['url_data',['../d0/dfa/structurl__data.html',1,'']]],
-  ['usage_20librarys_1',['Usage librarys',['..//drive/Documents/navtui/src/remote/plib/README.md#autotoc_md0',1,'']]]
+  ['quit_0',['quit',['../d1/dbe/include_8h.html#a9733cadf4bf769517625a90c6e4e8696',1,'quit(int code):&#160;lib.c'],['../de/dd7/lib_8c.html#a9733cadf4bf769517625a90c6e4e8696',1,'quit(int code):&#160;lib.c']]]
 ];

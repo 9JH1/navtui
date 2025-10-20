@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['pl_5farg_5fexist_0',['pl_arg_exist',['../d3/db7/plib_8h.html#aeb7b62bb39a3e32ea5124701524782b0',1,'plib.c']]],
-  ['pl_5farg_5frun_1',['pl_arg_run',['../d3/db7/plib_8h.html#a5bf80193f6d851b4a997bd1a3a263303',1,'plib.c']]],
-  ['pl_5fproc_2',['pl_proc',['../d3/db7/plib_8h.html#a390a51827a1a4a90278081695b6c63ed',1,'plib.c']]]
+  ['help_0',['help',['../d1/dbe/include_8h.html#a0bed8474bd33a912769360766f6b10d4',1,'help(void):&#160;lib.c'],['../de/dd7/lib_8c.html#a97ee70a8770dc30d06c744b24eb2fcfc',1,'help():&#160;lib.c']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['librarys_0',['Usage librarys',['..//drive/Documents/navtui/src/remote/plib/README.md#autotoc_md0',1,'']]]
+  ['documentation_0',['Full Documentation',['..//drive/Documents/navtui/src/remote/plib/README.md#autotoc_md6',1,'']]]
 ];

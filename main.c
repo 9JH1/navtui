@@ -12,9 +12,8 @@ int main(int c, char *v[]) {
 
   // parse plib arguments
   if ((ret = pl_proc(c, v)) == PL_SUCCESS) {
-    printf("help.triggered");
 
-    // if --help
+		// if --help
     if (PL_R(help_arg)) {
       printf("--help called\n");
       goto help_exit;

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gc_0',['gc',['../d3/d7d/structgc.html',1,'']]]
+  ['ebuf_5ft_0',['ebuf_t',['../da/d90/structebuf__t.html',1,'']]],
+  ['error_1',['error',['../df/d8b/structerror.html',1,'']]]
 ];

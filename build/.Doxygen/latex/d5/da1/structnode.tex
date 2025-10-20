@@ -1,0 +1,55 @@
+\doxysection{node Struct Reference}
+\hypertarget{structnode}{}\label{structnode}\index{node@{node}}
+
+
+node structure  
+
+
+
+
+{\ttfamily \#include $<$plib.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structnode_a319d0bc5726dafbcd462750565746596}\label{structnode_a319d0bc5726dafbcd462750565746596} 
+\mbox{\hyperlink{structpl__arg}{pl\+\_\+arg}} {\bfseries arg}
+\item 
+\Hypertarget{structnode_a23c21936fa271ec5566f0e3ec0653466}\label{structnode_a23c21936fa271ec5566f0e3ec0653466} 
+int {\bfseries recurse}
+\item 
+\Hypertarget{structnode_ad2f078d39d198455ec2cba72bc852211}\label{structnode_ad2f078d39d198455ec2cba72bc852211} 
+int {\bfseries skip}
+\item 
+\Hypertarget{structnode_a631fc70c5a5288c43b17b65e9e8c1c44}\label{structnode_a631fc70c5a5288c43b17b65e9e8c1c44} 
+int {\bfseries init}
+\item 
+\Hypertarget{structnode_aa3e8aa83f864292b5a01210f4453fcc0}\label{structnode_aa3e8aa83f864292b5a01210f4453fcc0} 
+struct \mbox{\hyperlink{structnode}{node}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+node structure 
+
+This is the structure that recursivly holds all of the arguments information, each node can have another node nested in it. This approach seems strange seeing as you could just use an array right? WRONG!! if you try to use an array and lets say this array is dynamically allocated and has a starting ~\newline
+ capacity of 2, if for example the \doxylink{plib_8h_a3f643d8dfcf0abfb53c894bea65aef94}{pl\+\_\+a} function returned the arguments memory pointer and then the array was reallocated then the address of the pointer is removed and therefore causes a dangling pointer, using nodes means that you do not need to reallocate to add a new item as you just need to allocate the space in the node with the highest recursive level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & \doxylink{structpl__arg}{pl\+\_\+arg} options \\
+\hline
+{\em recurse} & unused value \\
+\hline
+{\em skip,should} & the parser skip this node \\
+\hline
+{\em init} & has the current node been initialized with a \doxylink{structpl__arg}{pl\+\_\+arg}? \\
+\hline
+{\em next} & the next node in the table. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/remote/plib/\mbox{\hyperlink{plib_8h}{plib.\+h}}\end{DoxyCompactItemize}

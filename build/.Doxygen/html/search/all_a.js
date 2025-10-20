@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quit_0',['quit',['../d1/dbe/include_8h.html#a9733cadf4bf769517625a90c6e4e8696',1,'quit(int code):&#160;lib.c'],['../de/dd7/lib_8c.html#a9733cadf4bf769517625a90c6e4e8696',1,'quit(int code):&#160;lib.c']]]
+  ['lib_2ec_0',['lib.c',['../de/dd7/lib_8c.html',1,'']]],
+  ['license_1',['License',['..//drive/Documents/navtui/src/remote/fernet_c/README.md#autotoc_md0',1,'']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['lib_2ec_0',['lib.c',['../de/dd7/lib_8c.html',1,'']]],
-  ['librarys_1',['Usage librarys',['..//drive/Documents/navtui/src/remote/plib/README.md#autotoc_md0',1,'']]]
+  ['include_2eh_0',['include.h',['../d1/dbe/include_8h.html',1,'']]],
+  ['inputevent_1',['InputEvent',['../df/d20/structInputEvent.html',1,'']]],
+  ['internal_5fhooks_2',['internal_hooks',['../d1/d07/structinternal__hooks.html',1,'']]]
 ];

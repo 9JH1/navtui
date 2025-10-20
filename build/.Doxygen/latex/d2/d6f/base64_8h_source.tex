@@ -1,0 +1,50 @@
+\doxysection{base64.\+h}
+\hypertarget{base64_8h_source}{}\label{base64_8h_source}\index{src/remote/fernet\_c/base64.h@{src/remote/fernet\_c/base64.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ base64.c\ -\/\ by\ Joe\ DF\ (joedf@ahkscript.org)}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Released\ under\ the\ MIT\ License}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Revision:\ 2015-\/06-\/12\ 01:26:51}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ Thank\ you\ for\ inspiration:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ http://www.codeproject.com/Tips/813146/Fast-\/base-\/functions-\/for-\/encode-\/decode}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//Base64\ char\ table\ function\ -\/\ used\ internally\ for\ decoding}}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64\_int(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ ch);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ in\_size\ :\ the\ number\ bytes\ to\ be\ encoded.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Returns\ the\ recommended\ memory\ size\ to\ be\ allocated\ for\ the\ output\ buffer\ excluding\ the\ null\ byte}}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64e\_size(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ in\_size);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ in\_size\ :\ the\ number\ bytes\ to\ be\ decoded.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Returns\ the\ recommended\ memory\ size\ to\ be\ allocated\ for\ the\ output\ buffer}}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64d\_size(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ in\_size);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ in\ :\ buffer\ of\ "{}raw"{}\ binary\ to\ be\ encoded.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ in\_len\ :\ number\ of\ bytes\ to\ be\ encoded.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ out\ :\ pointer\ to\ buffer\ with\ enough\ memory,\ user\ is\ responsible\ for\ memory\ allocation,\ receives\ null-\/terminated\ string}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ returns\ size\ of\ output\ including\ null\ byte}}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64\_encode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ in,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ in\_len,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ out);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ in\ :\ buffer\ of\ base64\ string\ to\ be\ decoded.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ in\_len\ :\ number\ of\ bytes\ to\ be\ decoded.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ out\ :\ pointer\ to\ buffer\ with\ enough\ memory,\ user\ is\ responsible\ for\ memory\ allocation,\ receives\ "{}raw"{}\ binary}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ returns\ size\ of\ output\ excluding\ null\ byte}}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64\_decode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ in,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ in\_len,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ out);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ file-\/version\ b64\_encode}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Input\ :\ filenames}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ returns\ size\ of\ output}}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64\_encodef(\textcolor{keywordtype}{char}\ *InFile,\ \textcolor{keywordtype}{char}\ *OutFile);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ file-\/version\ b64\_decode}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Input\ :\ filenames}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ returns\ size\ of\ output}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ b64\_decodef(\textcolor{keywordtype}{char}\ *InFile,\ \textcolor{keywordtype}{char}\ *OutFile);}
+
+\end{DoxyCode}

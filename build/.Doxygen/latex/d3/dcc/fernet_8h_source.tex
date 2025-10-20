@@ -1,0 +1,79 @@
+\doxysection{fernet.\+h}
+\hypertarget{fernet_8h_source}{}\label{fernet_8h_source}\index{src/remote/fernet\_c/fernet.h@{src/remote/fernet\_c/fernet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Fernet\ implementation}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Last\ update:\ 02/22/2020}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Issue\ date:\ \ 02/22/2020}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2020\ Zhanhua\ Kuang\ <zhanhua.kuang@gmail.com>}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ are\ met:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ 1.\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ 2.\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ 3.\ Neither\ the\ name\ of\ the\ project\ nor\ the\ names\ of\ its\ contributors}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ \ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this\ software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ PROJECT\ AND\ CONTRIBUTORS\ \`{}\`{}AS\ IS''\ AND}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ ARE\ DISCLAIMED.\ \ IN\ NO\ EVENT\ SHALL\ THE\ PROJECT\ OR\ CONTRIBUTORS\ BE\ LIABLE}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifndef\ \_FERNET\_H\_}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ \_FERNET\_H\_}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ token\ :\ the\ fernet\ token\ to\ be\ decrypted,\ token\ must\ be\ base64\ url\ safe\ encoded.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ token\_len\ :\ number\ of\ bytes\ of\ the\ token.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ key:\ the\ key\ to\ decrypt\ the\ token,\ key\ len\ must\ be\ base64\ url\ safe\ endcode\ encoded\ of\ 44.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ buf\ :\ pointer\ to\ buffer\ with\ enough\ memory\ for\ decrypted\ data,\ user\ is\ responsible\ for\ memory\ allocation}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ buf\_len:\ number\ of\ bytes\ of\ the\ buf,\ and\ receives\ the\ actual\ len\ of\ the\ decrypted\ data}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ return\ FERNET\_OK\ if\ decrypt\ success}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ \ \ \ \ \ \ FERNET\_INV\_TOKEN\ if\ the\ token\ is\ not\ valid}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ \ \ \ \ \ \ \ FERNET\_INV\_KEY\ if\ the\ key\ is\ not\ valid}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ \ \ \ \ \ \ \ FERNET\_INS\_BUF\ if\ the\ buffer\ is\ too\ small}}
+\DoxyCodeLine{00048\ int32\_t\ fernet\_decrypt(\textcolor{keyword}{const}\ uint8\_t*\ token,\ \textcolor{keywordtype}{size\_t}\ token\_len,\ \textcolor{keyword}{const}\ uint8\_t*\ key,\ uint8\_t*\ buf,\ \textcolor{keywordtype}{size\_t}\ *buf\_len);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ buf:\ pointer\ to\ buffer\ with\ enough\ memory\ for\ storing\ the\ base64\ url\ safe\ encoded\ key,\ user\ is\ responsible\ for\ memory\ allocation}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ \ \ \ \ \ the\ size\ of\ the\ buffer\ must\ be\ larger\ than\ 45bytes,\ and\ the\ key\ is\ exactly\ 44bytes\ plus\ a\ null-\/terminator.}}
+\DoxyCodeLine{00052\ int32\_t\ fernet\_generate\_key(uint8\_t*\ buf);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ data\ :\ the\ data\ to\ be\ encrypted.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ data\_len\ :\ number\ of\ bytes\ of\ the\ data.}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ key:\ the\ key\ to\ encrypt\ the\ token,\ key\ len\ must\ be\ base64\ url\ safe\ endcode\ encoded\ of\ 44.}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ buf\ :\ pointer\ to\ buffer\ with\ enough\ memory\ for\ storing\ the\ encrypted\ token,\ user\ is\ responsible\ for\ memory\ allocation}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ buf\_len:\ number\ of\ bytes\ of\ the\ buf,\ and\ receives\ the\ actual\ len\ of\ the\ decrypted\ data}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ return\ FERNET\_OK\ if\ decrypt\ success}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ \ \ \ \ \ \ \ FERNET\_INV\_TOKEN\ if\ the\ token\ is\ not\ valid}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ \ \ \ \ \ \ \ FERNET\_INV\_KEY\ if\ the\ key\ is\ not\ valid}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ \ \ \ \ \ \ \ FERNET\_INS\_BUF\ if\ the\ buffer\ is\ too\ small}}
+\DoxyCodeLine{00063\ int32\_t\ fernet\_encrypt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ data,\ \textcolor{keywordtype}{size\_t}\ data\_len,\ \textcolor{keyword}{const}\ uint8\_t*\ key,\ uint8\_t*\ buf,\ \textcolor{keywordtype}{size\_t}\ *buf\_len);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ FERNET\_INV\_TOKEN\ -\/1}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ FERNET\_INV\_KEY\ -\/2}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ FERNET\_INS\_BUF\ -\/3}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ FERNET\_OK\ 0}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ FERNET\_INTERNAL\_BUF\_LEN\ 2048}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ \#define\ FERNET\_DEBUG}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_FERNET\_H\_}}
+
+\end{DoxyCode}
