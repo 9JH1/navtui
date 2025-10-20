@@ -4,8 +4,8 @@ auth_config opt;
 toml_result_t config_file;
 
 int main(const int c, const char *v[]) {
-  pl_arg *help_arg = PL_P("--help", "show this dialog");
-  pl_arg *arg_config_paths = PL_P("--config-path", "show config path");
+  pl_arg *help_arg = PL_A("--help", "show this dialog");
+  pl_arg *arg_config_paths = PL_A("--config-path", "show config path");
   pl_arg *arg_config_path =
       PL_P("--config", "load a config file", .takes_value = 1);
   pl_r ret;
