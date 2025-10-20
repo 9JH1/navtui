@@ -3,16 +3,16 @@
 auth_config opt;
 toml_result_t config_file;
 
-int main(const int c, const char *v[]) {
+int main(int c, char *v[]) {
   pl_arg *help_arg = PL_A("--help", "show this dialog");
   pl_arg *arg_config_paths = PL_A("--config-path", "show config path");
   pl_arg *arg_config_path =
-      PL_P("--config", "load a config file", .takes_value = 1);
+      PL_A("--config", "load a config file", .takes_value = 1);
   pl_r ret;
 
   // parse plib arguments
   if ((ret = pl_proc(c, v)) == PL_SUCCESS) {
-    printf("help.triggered = %d\n", help_arg->triggered);
+    printf("help.triggered");
 
     // if --help
     if (PL_R(help_arg)) {
