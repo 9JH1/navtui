@@ -7,7 +7,7 @@ int main(int c, char *v[]) {
   pl_arg *help_arg = PL_A("--help", "show this dialog");
   pl_arg *arg_config_paths = PL_A("--config-path", "show config path");
   pl_arg *arg_config_path =
-      PL_A("--config", "load a config file", .takes_value = 1);
+      PL_A("--config", "load a config file", .takes_value = 1, .type = "path");
   pl_r ret;
 
   // parse plib arguments
